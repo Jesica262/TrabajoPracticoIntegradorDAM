@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FragmentMenu">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imagen"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            app:srcCompat="@drawable/_rbol_abstracto_del_vector_logotipo_en_c_rculo_emblema_dise_o_icono_de_la_hoja_aislado_el_concepto_blanco_respetuoso_medio_141367082" />
+
+        <Button
+            android:id="@+id/registro"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/md_green_700"
+            android:text="@string/Registrarse"
+            app:cornerRadius="30dp" />
+
+        <Button
+            android:id="@+id/inicio_sesion"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/md_green_700"
+            android:text="@string/IniciarSesion"
+            app:cornerRadius="30dp" />
+
+        <Button
+            android:id="@+id/informacion"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/md_green_700"
+            android:text="@string/Informacion"
+            app:cornerRadius="30dp" />
+
+    </LinearLayout>
+</FrameLayout>

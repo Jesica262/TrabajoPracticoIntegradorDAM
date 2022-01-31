@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">My Arbolito</string>
+    <string name="Registrarse">registrarse</string>
+    <string name="IniciarSesion">Iniciar Sesión</string>
+    <string name="Informacion">Información</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Nombre">NOMBRE</string>
+    <string name="Password">PASSWORD</string>
+    <string name="Aceptar">ACEPTAR</string>
+    <string name="Usuario">USUARIO</string>
+    <string name="Email">E-MAIL</string>
+    <string name="Telefono">TELÉFONO</string>
+    <string name="Registro">REGISTRARSE</string>
+    <string name="InformacionAdicional1">
+        Proponemos la creación de una aplicación destinada para los usuarios (ciudadanos de la ciudad),
+        donde como objetivo posibilita la geolocalización de cada árbol de la ciudad, permitiendo
+        gestionar las intervenciones sobre cada uno y facilitando el planeamiento de nuevas plantaciones,
+        generando un mapa del arbolado de la ciudad, detectando faltantes y riesgos.
+    </string>
+    <string name="InformacionAdicional2">DESCRIPCION</string>
+    <string name="InformacionAdicional3">
+        El ciudadano podrá participar de forma activa en el registro de arbolado por medio de un
+        dispositivo móvil. Para que pueda operar, el usuario debe descargar la aplicación de forma
+        gratuita en su dispositivo móvil y loguearse, en caso de no estar registrado, puede hacerlo a través
+        de la misma.
+        Ingresando a la aplicación, en caso de que el usuario/ciudadano se encuentre registrado, podrá
+        pedir la plantación de un árbol, y agregarlo a su lista de pedidos, en caso de ser usuario no
+        registrado solo tendrá acceso a la funcionalidad de ver la información acerca de la aplicación,
+        donde la misma contara con más detalle para que fue creada, que objetivo busca cumplir, y
+        concientizar a la gente para que se registre y participe de la misma.
+        Esta aplicación también busca educar e informar sobre la vegetación ideal para cada área a todos
+        los ciudadanos.</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_closed">closed</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/perfil"
+        android:title="Perfil"
+        android:icon="@drawable/baseline_account_circle_24"/>
+    <item
+        android:id="@+id/listado"
+        android:title="Lista"
+        android:icon="@drawable/baseline_list_24"/>
+    <item
+        android:id="@+id/informacion"
+        android:icon="@drawable/baseline_info_24"
+        android:title="Información" />
+    <item
+        android:id="@+id/pedirArbol"
+        android:title="Pedir un Árbol"
+        android:icon="@drawable/baseline_filter_vintage_24"/>
+    <item
+        android:id="@+id/cerrar"
+        android:title="Cerrar Sesión"
+        android:icon="@drawable/baseline_do_disturb_on_24"/>
+
+</menu>

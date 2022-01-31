@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FragmentRegistro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/toolbar_drawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></include>
+
+
+        <ImageView
+            android:id="@+id/fotoInicioSesion"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/_rbol_abstracto_del_vector_logotipo_en_c_rculo_emblema_dise_o_icono_de_la_hoja_aislado_el_concepto_blanco_respetuoso_medio_141367082" />
+
+        <TextView
+            android:id="@+id/usuarioText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="@string/Usuario"
+            android:textSize="18dp"
+            android:textColor="@color/md_grey_700"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/nombre"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_grey_700"
+            android:textSize="15dp"
+            android:layout_gravity="center"
+            android:inputType="textPersonName"
+            tools:ignore="TouchTargetSizeCheck"
+            android:imeOptions="actionDone"/>
+
+        <TextView
+            android:id="@+id/passwordText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="center"
+            android:textColor="@color/md_grey_700"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:text="@string/Password" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_grey_700"
+            android:textSize="15dp"
+            android:layout_gravity="center"
+            android:inputType="textPassword"
+            tools:ignore="TouchTargetSizeCheck"
+            android:imeOptions="actionDone"/>
+
+        <TextView
+            android:id="@+id/emailText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="center"
+            android:text="@string/Email"
+            android:textSize="18dp"
+            android:textColor="@color/md_grey_700"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_grey_700"
+            android:textSize="15dp"
+            android:layout_gravity="center"
+            android:inputType="textEmailAddress"
+            tools:ignore="TouchTargetSizeCheck"
+            android:imeOptions="actionDone"/>
+
+        <TextView
+            android:id="@+id/telefonoText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="center"
+            android:textColor="@color/md_grey_700"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:text="@string/Telefono" />
+
+        <EditText
+            android:id="@+id/telefono"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_grey_700"
+            android:textSize="15dp"
+            android:layout_gravity="center"
+            android:inputType="number"
+            tools:ignore="TouchTargetSizeCheck"
+            android:imeOptions="actionDone"/>
+
+        <Button
+            android:id="@+id/registrar"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/md_green_700"
+            android:text="@string/Registro"
+            app:cornerRadius="30dp" />
+
+    </LinearLayout>
+
+</FrameLayout>
