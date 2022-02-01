@@ -31,7 +31,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
         FragmentManager fragm =getSupportFragmentManager();
         FragmentInicio fragmentMenu=new FragmentInicio();
-        fragm.beginTransaction().replace(R.id.contenidoMenu,fragmentMenu).addToBackStack(null).commit();
+        fragm.beginTransaction().replace(R.id.contenido,fragmentMenu).addToBackStack(null).commit();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -70,21 +70,21 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
             case R.id.perfil:
                 FragmentPerfil fragmentPerfil=new FragmentPerfil();
-                fragm.beginTransaction().replace(R.id.contenidoMenu,fragmentPerfil).addToBackStack(null).commit();
+                fragm.beginTransaction().replace(R.id.contenido,fragmentPerfil).addToBackStack(null).commit();
 
                 break;
             case R.id.listado:
                 FragmentLista fragmentLista= new FragmentLista();
-                fragm.beginTransaction().replace(R.id.contenidoMenu,fragmentLista).addToBackStack(null).commit();
+                fragm.beginTransaction().replace(R.id.contenido,fragmentLista).addToBackStack(null).commit();
 
                 break;
             case R.id.informacion:
                 FragmentInformacion fragmentInformacion= new FragmentInformacion();
-                fragm.beginTransaction().replace(R.id.contenidoMenu,fragmentInformacion).addToBackStack(null).commit();
+                fragm.beginTransaction().replace(R.id.contenido,fragmentInformacion).addToBackStack(null).commit();
                 break;
             case R.id.pedirArbol:
                 FragmentPedirArbol fragmentPedirArbol= new FragmentPedirArbol();
-                fragm.beginTransaction().replace(R.id.contenidoMenu,fragmentPedirArbol).addToBackStack(null).commit();
+                fragm.beginTransaction().replace(R.id.contenido,fragmentPedirArbol).addToBackStack(null).commit();
                 break;
             case R.id.cerrar:
                 Intent intent = new Intent(this, MainActivity.class);

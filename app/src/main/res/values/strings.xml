@@ -33,4 +33,5 @@
         los ciudadanos.</string>
     <string name="drawer_open">open</string>
     <string name="drawer_closed">closed</string>
+    <string name="inicioSesion">Inicio Sesion</string>
 </resources>

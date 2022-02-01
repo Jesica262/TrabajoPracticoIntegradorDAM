@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.libraries.maps.SupportMapFragment;
+
 public class MainActivity extends AppCompatActivity{
 
 
@@ -24,12 +26,16 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_menu);
       //  toolbar = (Toolbar) findViewById(R.id.toolbar_drawer);
        // setSupportActionBar(toolbar);
         FragmentManager fragm =getSupportFragmentManager();
         FragmentMenu fragmentMenu=new FragmentMenu();
         fragm.beginTransaction().replace(R.id.contenido,fragmentMenu).addToBackStack(null).commit();
+
+       /* FragmentManager fragm =getSupportFragmentManager();
+        FragmentPedirArbol pedirArbol= new FragmentPedirArbol();
+        fragm.beginTransaction().replace(R.id.contenido,pedirArbol).addToBackStack(null).commit();*/
 
         //IniciarSesion();
         //MostrarInformacion();
