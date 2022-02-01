@@ -10,14 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <include
-            android:id="@+id/include"
-            layout="@layout/toolbar_drawer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></include>
-
-
         <ImageView
             android:id="@+id/fotoInicioSesion"
             android:layout_width="match_parent"

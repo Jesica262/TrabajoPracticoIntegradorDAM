@@ -14,12 +14,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity{
 
-    private Button registro;
-    private Button inicio_sesion;
-    private Button informacion;
+
     private Toolbar toolbar;
     private TextView titulo;
-    private FragmentTransaction transaction;
+    //private FragmentTransaction transaction;
     private Fragment fragmentRegistro;
 
 
@@ -27,13 +25,16 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+      //  toolbar = (Toolbar) findViewById(R.id.toolbar_drawer);
+       // setSupportActionBar(toolbar);
         FragmentManager fragm =getSupportFragmentManager();
         FragmentMenu fragmentMenu=new FragmentMenu();
-        fragm.beginTransaction().replace(R.id.contenidoMenu,fragmentMenu).addToBackStack(null).commit();
+        fragm.beginTransaction().replace(R.id.contenido,fragmentMenu).addToBackStack(null).commit();
 
-        transaction = getSupportFragmentManager().beginTransaction();
-        registro = (Button) findViewById(R.id.registro);
+        //IniciarSesion();
+        //MostrarInformacion();
+
+  /*      registro = (Button) findViewById(R.id.registro);
         registro.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -41,8 +42,7 @@ public class MainActivity extends AppCompatActivity{
                 switch(view.getId())
                 {
                     case R.id.registro:
-                        transaction.replace(R.id.contenido, fragmentRegistro).commit();
-                        transaction.addToBackStack(null);
+
                         break;
                     case R.id.inicio_sesion:
 
@@ -52,11 +52,9 @@ public class MainActivity extends AppCompatActivity{
                         break;
                 }
             }
-        });
+        });*/
     }
-      //  Registrarse();
-      //  IniciarSesion();
-      //  MostrarInformacion();
+
 
 
         //fragmentRegistro = new FragmentRegistro();
@@ -92,45 +90,5 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 */
-    public void Registrarse()
-    {
-        registro = (Button) findViewById(R.id.registro);
 
-        registro.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-
-                FragmentManager fragm =getSupportFragmentManager();
-                FragmentRegistro fragmentRegistro= new FragmentRegistro();
-                fragm.beginTransaction().replace(R.id.contenidoMenu,fragmentRegistro).addToBackStack(null).commit();
-            }
-        });
-    }
-
-    public void IniciarSesion()
-    {
-        inicio_sesion = (Button) findViewById(R.id.inicio_sesion);
-
-        inicio_sesion.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-
-                FragmentManager fragm =getSupportFragmentManager();
-                FragmentInicioSesion fragmentInicioSesion= new FragmentInicioSesion();
-                fragm.beginTransaction().replace(R.id.contenidoMenu,fragmentInicioSesion).addToBackStack(null).commit();
-            }
-        });
-    }
-
-    public void MostrarInformacion()
-    {
-        informacion = (Button) findViewById(R.id.informacion);
-
-        informacion.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-
-                FragmentManager fragm =getSupportFragmentManager();
-                FragmentInformacion fragmentInformacion= new FragmentInformacion();
-                fragm.beginTransaction().replace(R.id.contenidoMenu,fragmentInformacion).addToBackStack(null).commit();
-            }
-        });
-    }
 }
