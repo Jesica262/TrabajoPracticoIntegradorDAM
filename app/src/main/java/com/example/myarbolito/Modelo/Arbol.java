@@ -9,6 +9,7 @@ public class Arbol {
     private Usuario usuario;
     private GoogleMap ubicacion;
 
+
     public Arbol(){}
 
     public Arbol(Integer id, String nombreArbol, Usuario usuario, GoogleMap ubicacion) {
