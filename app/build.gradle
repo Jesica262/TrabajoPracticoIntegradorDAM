@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.application'
+   // id 'com.google.gms.google-services'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -40,8 +42,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //noinspection GradleCompatible
     implementation 'com.android.support:support-compat:27.1.1'
-    implementation 'com.google.maps.android:android-maps-utils:2.2.3'
+
 
     implementation 'androidx.room:room-runtime:2.4.0'
     annotationProcessor 'androidx.room:room-compiler:2.4.0'

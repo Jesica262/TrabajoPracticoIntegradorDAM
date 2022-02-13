@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.google.android.libraries.maps.SupportMapFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class Menu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -85,6 +87,8 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             case R.id.pedirArbol:
                 FragmentPedirArbol fragmentPedirArbol= new FragmentPedirArbol();
                 fragm.beginTransaction().replace(R.id.contenido,fragmentPedirArbol).addToBackStack(null).commit();
+
+
                 break;
             case R.id.cerrar:
                 Intent intent = new Intent(this, MainActivity.class);
