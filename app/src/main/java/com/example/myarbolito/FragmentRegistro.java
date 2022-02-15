@@ -1,5 +1,6 @@
 package com.example.myarbolito;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -56,17 +57,12 @@ public class FragmentRegistro extends Fragment {
                 usuarioRepo.saveUsuario(new UsuarioDataSource.GuardarUsuarioCallback() {
                     @Override
                     public void resultado(boolean exito) {
-                        Toast.makeText(getContext(),"Se guardo",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "Usuario creado correctamente", Toast.LENGTH_LONG).show();
                     }
                }, usr);
-
-
-
-
-
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
-
-
     }
 }

@@ -22,15 +22,9 @@ public class FragmentMenu extends Fragment {
     private Button inicio_sesion;
     private Button informacionMenu;
 
-
-
-
-
     public FragmentMenu() {
         // Required empty public constructor
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

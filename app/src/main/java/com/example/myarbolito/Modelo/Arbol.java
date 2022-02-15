@@ -9,20 +9,19 @@ import androidx.room.PrimaryKey;
 
 import com.google.android.gms.maps.GoogleMap;
 
-@Entity (tableName = "arbol",foreignKeys = @ForeignKey(entity =Usuario.class,
+/*@Entity (tableName = "arbol",foreignKeys = @ForeignKey(entity =Usuario.class,
                                                         parentColumns = "id",
                                                         childColumns = "user_id"))
-
+*/
+@Entity (tableName = "arbol")
 public class Arbol {
     @PrimaryKey
     @NonNull
     private Integer id;
     private String nombreArbol;
-    @ColumnInfo(name = "user_id")
-    private Integer userId;
+  //  @ColumnInfo(name = "user_id")
+ //   private Integer userId;
    // private GoogleMap ubicacion;
-
-
 
     public Arbol(){}
 
