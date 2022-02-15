@@ -1,5 +1,6 @@
 package com.example.myarbolito;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -43,7 +44,8 @@ public class FragmentPerfil extends Fragment {
         aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getContext(), Menu.class);
+                startActivity(intent);
             }
         });
     }
