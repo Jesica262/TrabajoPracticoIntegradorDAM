@@ -10,10 +10,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <meta-data
-        android:name="com.google.android.geo.API_KEY"
-        android:value="${MAPS_API_KEY}" />
+
 
     <application
         android:allowBackup="true"
@@ -23,13 +22,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyArbolito">
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivity2"
             android:exported="false" />
         <activity
-            android:name=".Menu"
+            android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivityMaps"
+            android:name=".Menu"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,5 +37,8 @@
             </intent-filter>
         </activity>
     </application>
+    <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="${MAPS_API_KEY}" />
 
 </manifest>
