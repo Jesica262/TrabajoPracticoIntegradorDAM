@@ -42,7 +42,7 @@ public class FragmentPerfil extends Fragment {
         aceptar = view.findViewById(R.id.registrar);
 
         bundle.getInt("id");
-         Toast.makeText(getContext(),"nombre",Toast.LENGTH_LONG).show();
+         Toast.makeText(getContext(),"id del usuario" +  bundle.getInt("id"),Toast.LENGTH_LONG).show();
 
         aceptar();
     }
