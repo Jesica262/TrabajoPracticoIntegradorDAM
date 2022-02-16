@@ -9,38 +9,30 @@ import java.util.List;
 public class Usuario {
       @PrimaryKey(autoGenerate = true)
       @NonNull
-      private Integer id;
-      private String usuario;
+      private Integer userId;
+      private String name;
       private String pass;
       private String email;
-      private Long telefono;
-      //private List<Arbol> arboles;
+      private String telefono;
 
-      public Usuario(){}
 
-   /* public Usuario(Integer id, String usuario, String pass, String email, Long telefono, List<Arbol> arboles) {
-        this.id = id;
-        this.usuario = usuario;
-        this.pass = pass;
-        this.email = email;
-        this.telefono = telefono;
-        this.arboles = arboles;
-    }*/
+     public Usuario(){}
 
-    public Integer getId() {
-        return id;
+    @NonNull
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUserId(@NonNull Integer userId) {
+        this.userId = userId;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getName() {
+        return name;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPass() {
@@ -59,19 +51,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public Long getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Long telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
-  /*  public List<Arbol> getArboles() {
-        return arboles;
-    }*/
-
-  /* public void setArboles(List<Arbol> arboles) {
-        this.arboles = arboles;
-    }*/
 }

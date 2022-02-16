@@ -9,35 +9,28 @@ import androidx.room.PrimaryKey;
 
 import com.google.android.gms.maps.GoogleMap;
 
-/*@Entity (tableName = "arbol",foreignKeys = @ForeignKey(entity =Usuario.class,
-                                                        parentColumns = "id",
-                                                        childColumns = "user_id"))
-*/
-@Entity (tableName = "arbol")
+@Entity(tableName = "arbol", foreignKeys = @ForeignKey(entity = Usuario.class,
+        parentColumns = "userId",
+        childColumns = "userId"))
+
 public class Arbol {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @NonNull
-    private Integer id;
+    private Integer arbolId;
     private String nombreArbol;
-  //  @ColumnInfo(name = "user_id")
- //   private Integer userId;
-   // private GoogleMap ubicacion;
+    private Integer userId;
+    // private GoogleMap ubicacion;
 
-    public Arbol(){}
-
- /*   public Arbol(Integer id, String nombreArbol, Usuario usuario, GoogleMap ubicacion) {
-        this.id = id;
-        this.nombreArbol = nombreArbol;
-        this.usuario = usuario;
-        this.ubicacion = ubicacion;
-    }*/
-
-    public Integer getId() {
-        return id;
+    public Arbol() {
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    @NonNull
+    public Integer getArbolId() {
+        return arbolId;
+    }
+
+    public void setArbolId(@NonNull Integer arbolId) {
+        this.arbolId = arbolId;
     }
 
     public String getNombreArbol() {
@@ -48,21 +41,11 @@ public class Arbol {
         this.nombreArbol = nombreArbol;
     }
 
-   /* public Usuario getUsuario() {
-        return usuario;
-    }*/
-
-  /* public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }*/
-
- /*   public GoogleMap getUbicacion() {
-        return ubicacion;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUbicacion(GoogleMap ubicacion) {
-        this.ubicacion = ubicacion;
-    }*/
-
-
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 }

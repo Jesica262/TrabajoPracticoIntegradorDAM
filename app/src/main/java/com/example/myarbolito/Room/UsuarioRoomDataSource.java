@@ -22,13 +22,18 @@ public class UsuarioRoomDataSource implements UsuarioDataSource {
     };
     @Override
     public void guardarUsuario(Usuario usr, GuardarUsuarioCallback callback) {
+     try {
+         long filaInsert = db.daoUsurio().insert(usr);
+         boolean result=false;
+         if(filaInsert != OnConflictStrategy.IGNORE || filaInsert!= OnConflictStrategy.FAIL|| filaInsert != OnConflictStrategy.ABORT){
+             result=true;
+         }
+         callback.resultado(result);
+     }
+     catch (Exception e){
+         e.printStackTrace();
+     }
 
-        long filaInsert = db.daoUsurio().insert(usr);
-        boolean result=false;
-        if(filaInsert != OnConflictStrategy.IGNORE || filaInsert!= OnConflictStrategy.FAIL|| filaInsert != OnConflictStrategy.ABORT){
-            result=true;
-        }
-        callback.resultado(result);
     }
 
     @Override

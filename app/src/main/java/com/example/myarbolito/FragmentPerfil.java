@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +20,15 @@ import com.example.myarbolito.Repository.UsuarioRepository;
 import com.example.myarbolito.Room.UsuarioRoomDataSource;
 
 public class FragmentPerfil extends Fragment {
-
+    private Usuario usr=null;
     private Button aceptar;
+    private Bundle bundle;
 
-    public FragmentPerfil() {
-        // Required empty public constructor
+    public FragmentPerfil( Bundle bundle) {
+            if(bundle!=null)
+               this.bundle=bundle;
+
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,6 +40,10 @@ public class FragmentPerfil extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         aceptar = view.findViewById(R.id.registrar);
+
+        bundle.getInt("id");
+         Toast.makeText(getContext(),"nombre",Toast.LENGTH_LONG).show();
+
         aceptar();
     }
 

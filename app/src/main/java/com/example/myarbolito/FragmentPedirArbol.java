@@ -56,7 +56,7 @@ public FragmentPedirArbol(){}
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view=  inflater.inflate(R.layout.fragment_informacion, container, false);
+        View view=  inflater.inflate(R.layout.fragment_maps, container, false);
         return view; }
 
 

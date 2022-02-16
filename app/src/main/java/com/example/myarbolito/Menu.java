@@ -28,8 +28,8 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu
-        );
+        setContentView(R.layout.activity_menu);
+
 
         FragmentManager fragm =getSupportFragmentManager();
         FragmentInicio fragmentMenu=new FragmentInicio();
@@ -71,7 +71,8 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         switch (item.getItemId()){
 
             case R.id.perfil:
-                FragmentPerfil fragmentPerfil=new FragmentPerfil();
+                Bundle objetoRecibido = getIntent().getExtras();
+                FragmentPerfil fragmentPerfil=new FragmentPerfil(objetoRecibido);
                 fragm.beginTransaction().replace(R.id.contenido,fragmentPerfil).addToBackStack(null).commit();
 
                 break;
