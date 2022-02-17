@@ -19,7 +19,7 @@ public class Arbol {
     private Integer arbolId;
     private String nombreArbol;
     private Integer userId;
-    // private GoogleMap ubicacion;
+    private GoogleMap ubicacion;
 
     public Arbol() {
     }
