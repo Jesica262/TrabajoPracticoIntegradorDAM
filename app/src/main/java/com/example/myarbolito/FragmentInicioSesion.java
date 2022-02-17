@@ -70,6 +70,7 @@ public class FragmentInicioSesion extends Fragment {
                                       usr.setName(u.getName());
                                       usr.setPass(u.getPass());
                                       usr.setTelefono(u.getTelefono());
+                                      usr.setEmail(u.getEmail());
                                       break;
                                   }
                               }
@@ -80,9 +81,8 @@ public class FragmentInicioSesion extends Fragment {
                     bundle=new Bundle();
                     bundle.putInt("id",usr.getUserId());
                     bundle.putString("nombre",usr.getName());
-                    bundle.putString("pass",usr.getPass());
-                    bundle.putString("telefono",usr.getPass());
-
+                    bundle.putString("email",usr.getEmail());
+                    bundle.putString("telefono",usr.getTelefono());
                     intent.putExtras(bundle);
                     startActivity( intent);
         

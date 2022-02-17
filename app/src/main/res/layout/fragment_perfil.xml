@@ -56,7 +56,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/identificador"
+            android:id="@+id/identificadorPerfil"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
@@ -77,7 +77,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/emailText"
+            android:id="@+id/emailTextPerfil"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -98,11 +98,10 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/telefono"
+            android:id="@+id/telefonoPerfil"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:editable="false"
             android:layout_marginHorizontal="25dp"
             android:textSize="20dp"
             android:textStyle="bold"/>

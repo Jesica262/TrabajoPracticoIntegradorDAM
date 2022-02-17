@@ -25,6 +25,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

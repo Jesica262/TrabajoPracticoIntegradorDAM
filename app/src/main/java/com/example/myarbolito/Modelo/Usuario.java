@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.List;
 @Entity(tableName = "usuario")
 public class Usuario {
@@ -58,4 +61,14 @@ public class Usuario {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+    public JSONObject toJSON() throws JSONException {
+        JSONObject resultado= new JSONObject();
+        resultado.put("userId",this.userId);
+        resultado.put("name",this.name);
+        resultado.put("email",this.email);
+        resultado.put("telefono",this.telefono);
+        return resultado;
+    }
+
 }
