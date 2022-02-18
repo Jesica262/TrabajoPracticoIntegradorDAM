@@ -68,7 +68,7 @@ public class FragmentInicioSesion extends Fragment {
                                       usr= new Usuario();
                                       usr.setUserId(u.getUserId());
                                       usr.setName(u.getName());
-                                      usr.setPass(u.getPass());
+                                     // usr.setPass(u.getPass());
                                       usr.setTelefono(u.getTelefono());
                                       usr.setEmail(u.getEmail());
                                       break;

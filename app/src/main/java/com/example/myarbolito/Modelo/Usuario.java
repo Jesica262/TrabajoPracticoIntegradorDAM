@@ -62,13 +62,4 @@ public class Usuario {
         this.telefono = telefono;
     }
 
-    public JSONObject toJSON() throws JSONException {
-        JSONObject resultado= new JSONObject();
-        resultado.put("userId",this.userId);
-        resultado.put("name",this.name);
-        resultado.put("email",this.email);
-        resultado.put("telefono",this.telefono);
-        return resultado;
-    }
-
-}
+  }

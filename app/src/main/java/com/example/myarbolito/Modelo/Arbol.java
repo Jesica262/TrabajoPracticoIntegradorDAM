@@ -18,7 +18,7 @@ public class Arbol {
     @NonNull
     private Integer arbolId;
     private String nombreArbol;
-    //private Integer userId;
+    private Integer userId;
     //private GoogleMap ubicacion;
 
     public Arbol() {
