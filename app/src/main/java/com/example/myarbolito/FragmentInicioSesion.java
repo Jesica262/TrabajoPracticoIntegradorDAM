@@ -80,7 +80,7 @@ public class FragmentInicioSesion extends Fragment {
                     Intent intent = new Intent(getContext(), Menu.class);
                     bundle=new Bundle();
                     bundle.putInt("id",usr.getUserId());
-                    bundle.putString("nombre",usr.getName());
+                    bundle.putString("name",usr.getName());
                     bundle.putString("email",usr.getEmail());
                     bundle.putString("telefono",usr.getTelefono());
                     intent.putExtras(bundle);

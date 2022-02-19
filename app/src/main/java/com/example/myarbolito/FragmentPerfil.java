@@ -31,7 +31,7 @@ public class FragmentPerfil extends Fragment {
     private Usuario usr ;
     private Button aceptar;
     private Bundle bundle;
-    private EditText identificacion, email, telefono;
+    private EditText identificacion, email, telefono,nombreUsr;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
     private String key="usuario";
@@ -51,23 +51,21 @@ public class FragmentPerfil extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         init(view);
-        try {
-            setCampos();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        setCampos();
         aceptar();
     }
 
-    private void setCampos() throws JSONException {
+    private void setCampos()  {
         if (bundle != null) {
 
             usr.setUserId(bundle.getInt("id"));
+            usr.setName(bundle.getString("name"));
             usr.setEmail(bundle.getString("email"));
             usr.setTelefono(bundle.getString("telefono"));
             editor.putString("id",usr.getUserId().toString());
             editor.putString("email", usr.getEmail());
             editor.putString("telefono",usr.getTelefono());
+            editor.putString("name", usr.getName());
             editor.commit();
             mostrarDatos();
 
@@ -81,12 +79,15 @@ public class FragmentPerfil extends Fragment {
         identificacion.setText(preferences.getString("id","id"));
         email.setText(preferences.getString("email","email"));
         telefono.setText(preferences.getString("telefono","telefono"));
+        nombreUsr.setText(preferences.getString("name","nombre"));
+
     }
 
     private void init(View view) {
         aceptar = view.findViewById(R.id.registrar);
         identificacion = view.findViewById(R.id.identificadorPerfil);
         email = view.findViewById(R.id.emailTextPerfil);
+        nombreUsr=view.findViewById(R.id.nombreUsr);
         telefono = view.findViewById(R.id.telefonoPerfil);
         preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         editor = preferences.edit();
