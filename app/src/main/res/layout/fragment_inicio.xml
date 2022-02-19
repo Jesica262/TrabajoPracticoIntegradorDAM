@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/fotoMenu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="20dp"
         app:srcCompat="@drawable/_rbol_abstracto_del_vector_logotipo_en_c_rculo_emblema_dise_o_icono_de_la_hoja_aislado_el_concepto_blanco_respetuoso_medio_141367082" />
 
