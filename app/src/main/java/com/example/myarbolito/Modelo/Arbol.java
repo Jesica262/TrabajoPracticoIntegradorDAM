@@ -1,27 +1,52 @@
 package com.example.myarbolito.Modelo;
 
-
 import androidx.annotation.NonNull;
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
-
-import com.google.android.gms.maps.GoogleMap;
+import java.util.function.Consumer;
 
 @Entity(tableName = "arbol", foreignKeys = @ForeignKey(entity = Usuario.class,
         parentColumns = "userId",
         childColumns = "userId"))
 
-public class Arbol {
+public class Arbol{
     @PrimaryKey(autoGenerate = true)
     @NonNull
     private Integer arbolId;
     private String nombreArbol;
+    private int icon;
+    private int color;
     private Integer userId;
     //private GoogleMap ubicacion;
 
+    public int getIcon() {
+        return icon;
+    }
+
+    public void setIcon(int icon) {
+        this.icon = icon;
+    }
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
+    }
+
     public Arbol() {
+    }
+
+    public  Arbol(Consumer<Arbol> c){
+        c.accept(this);
+    }
+
+    public Arbol(@NonNull Integer arbolId, String nombreArbol, Integer userId) {
+        this.arbolId = arbolId;
+        this.nombreArbol = nombreArbol;
+        this.userId = userId;
     }
 
     @NonNull
