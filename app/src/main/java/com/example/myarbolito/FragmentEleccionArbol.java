@@ -1,16 +1,22 @@
 package com.example.myarbolito;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.myarbolito.Modelo.Arbol;
 import java.util.List;
 
@@ -60,6 +66,11 @@ public class FragmentEleccionArbol extends Fragment {
         arbolViewHolder.setonClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getContext(), "Selecciono: " + arbols.get(recyclerView.getChildAdapterPosition(v)).getNombreArbol(), Toast.LENGTH_SHORT).show();
+                seleccionado= arbols.get(recyclerView.getChildAdapterPosition(v)).getNombreArbol();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentPedirArbol fragmentPedirArbol= new FragmentPedirArbol(arbols);
+                fragmentManager.beginTransaction().replace(R.id.contenido,fragmentPedirArbol).addToBackStack(null).commit();
 
             }
         });

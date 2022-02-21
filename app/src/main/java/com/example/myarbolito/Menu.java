@@ -87,8 +87,6 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
                 fragm.beginTransaction().replace(R.id.contenido,fragmentInformacion).addToBackStack(null).commit();
                 break;
             case R.id.pedirArbol:
-               // FragmentPedirArbol fragmentPedirArbol= new FragmentPedirArbol();
-               // fragm.beginTransaction().replace(R.id.contenido,fragmentPedirArbol).addToBackStack(null).commit();
                 FragmentEleccionArbol fragmentEleccionArbol= new FragmentEleccionArbol();
                 fragm.beginTransaction().replace(R.id.contenido,fragmentEleccionArbol).addToBackStack(null).commit();
                 break;
