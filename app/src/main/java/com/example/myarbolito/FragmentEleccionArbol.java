@@ -19,7 +19,7 @@ public class FragmentEleccionArbol extends Fragment {
     private RecyclerView recyclerView;
     private ArbolViewHolder arbolViewHolder;
     private List<Arbol> arbols;
-    private TextView texviewCategoria;
+    private TextView texviewArbol;
     private String seleccionado;
 
     public FragmentEleccionArbol() {
@@ -43,8 +43,8 @@ public class FragmentEleccionArbol extends Fragment {
 
     private void setComponentes(View v) {
 
-        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerCategoria);
-        texviewCategoria = v.findViewById(R.id.textViewContenido);
+        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerArbol);
+        texviewArbol = v.findViewById(R.id.textViewContenido);
     }
     private void initValues() {
 

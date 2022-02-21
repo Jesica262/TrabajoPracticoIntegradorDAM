@@ -23,14 +23,14 @@ public  class ArbolViewHolder extends RecyclerView.Adapter<ArbolViewHolder.ViewH
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvCategoria;
+        private TextView tvArbol;
         private ImageView imgFav;
         private CardView cv;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvCategoria = itemView.findViewById(R.id.textViewContenido);
+            tvArbol = itemView.findViewById(R.id.textViewContenido);
             imgFav=itemView.findViewById(R.id.imageViewColor);
             cv = itemView.findViewById(R.id.cardView);
 
@@ -51,7 +51,7 @@ public  class ArbolViewHolder extends RecyclerView.Adapter<ArbolViewHolder.ViewH
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Arbol arbol = mDataSet.get(position);
-        holder.tvCategoria.setText(arbol.getNombreArbol());
+        holder.tvArbol.setText(arbol.getNombreArbol());
         holder.imgFav.setImageResource(arbol.getIcon());
         holder.cv.setCardBackgroundColor(arbol.getColor());
     }
