@@ -16,11 +16,6 @@
         android:layout_height="151dp"
         android:orientation="horizontal">
 
-        usuario;
-        private String pass;
-        private String email;
-        private Long telefono;
-
         <ImageView
             android:id="@+id/fotoInicioSesion"
             android:layout_width="138dp"
@@ -32,9 +27,9 @@
             android:id="@+id/nombreText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="40dp"
-            android:text="@string/Nombre"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="50dp"
+            android:text=""
             android:textColor="@color/md_grey_700"
             android:textSize="30dp"
             android:textStyle="bold" />
@@ -49,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:text="Identificación"
             android:textColor="@color/md_grey_700"
             android:textSize="20dp"
@@ -57,26 +52,6 @@
 
         <EditText
             android:id="@+id/identificadorPerfil"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:ems="10"
-            android:editable="false"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/nombreUsuario"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="50dp"
-            android:text="Nombre"
-            android:textColor="@color/md_grey_700"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/nombreUsr"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
@@ -125,6 +100,27 @@
             android:layout_marginHorizontal="25dp"
             android:textSize="20dp"
             android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/nombreUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="30dp"
+            android:text="Cantidad de Árboles"
+            android:textColor="@color/md_grey_700"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/nombreUsr"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:ems="10"
+            android:editable="false"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/registrar"

@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myarbolito.DataSource.UsuarioDataSource;
@@ -25,12 +26,14 @@ import com.example.myarbolito.Room.UsuarioRoomDataSource;
 
 import org.json.JSONException;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class FragmentPerfil extends Fragment {
     private Usuario usr ;
     private Button aceptar;
     private Bundle bundle;
+    private TextView nombreText;
     private EditText identificacion, email, telefono,nombreUsr;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
@@ -80,6 +83,7 @@ public class FragmentPerfil extends Fragment {
         email.setText(preferences.getString("email","email"));
         telefono.setText(preferences.getString("telefono","telefono"));
         nombreUsr.setText(preferences.getString("name","nombre"));
+        nombreText.setText(preferences.getString("name","nombre").toUpperCase());
 
     }
 
@@ -89,6 +93,7 @@ public class FragmentPerfil extends Fragment {
         email = view.findViewById(R.id.emailTextPerfil);
         nombreUsr=view.findViewById(R.id.nombreUsr);
         telefono = view.findViewById(R.id.telefonoPerfil);
+        nombreText = view.findViewById(R.id.nombreText);
         preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         editor = preferences.edit();
         usr=new Usuario();
