@@ -13,9 +13,14 @@
         android:fitsSystemWindows="true">
 
         <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:icon="@mipmap/icono" />
+        <TextView
             android:id="@+id/titulo_toolbar"
             android:textSize="20dp"
             android:textStyle="bold"
+            android:text="MI ARBOLITO"
             android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

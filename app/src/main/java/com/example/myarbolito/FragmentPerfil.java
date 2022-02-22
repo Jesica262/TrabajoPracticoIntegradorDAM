@@ -84,7 +84,6 @@ public class FragmentPerfil extends Fragment {
         telefono.setText(preferences.getString("telefono","telefono"));
         nombreUsr.setText(preferences.getString("name","nombre"));
         nombreText.setText(preferences.getString("name","nombre").toUpperCase());
-
     }
 
     private void init(View view) {

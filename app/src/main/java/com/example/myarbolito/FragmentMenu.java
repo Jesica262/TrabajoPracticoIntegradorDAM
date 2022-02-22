@@ -47,8 +47,6 @@ public class FragmentMenu extends Fragment {
         registroMenu=(Button) v.findViewById(R.id.registroMenu);
         inicio_sesion=(Button) v.findViewById(R.id.inicio_sesion);
         informacionMenu=(Button) v.findViewById(R.id.informacionMenu);
-
-
     }
     public void Registrarse()
     {
