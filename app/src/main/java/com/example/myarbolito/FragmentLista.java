@@ -71,7 +71,7 @@ public class FragmentLista extends Fragment {
 
             arbolRepo.traerArboles(new ArbolDataSource.RecuperarArbolesCallback() {
                 @Override
-                public void resultado(boolean exito, List<UsuarioWithArboles> arbols) {
+                public void resultado(boolean exito, UsuarioWithArboles arbols) {
                     if(exito){
                         Toast.makeText(getContext(),"llego",Toast.LENGTH_LONG).show();
                         usuarioWithArbolesViewHolder = new UsuarioWithArbolesViewHolder( arbols);

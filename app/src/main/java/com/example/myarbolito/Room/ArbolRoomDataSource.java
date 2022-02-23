@@ -43,9 +43,9 @@ public class ArbolRoomDataSource implements ArbolDataSource {
 
     @Override
     public void recuperarArboles(RecuperarArbolesCallback callback, Integer userId) {
-      List<UsuarioWithArboles> arbols= db.daoArbol().getArboles(userId);
+      UsuarioWithArboles arbols= db.daoArbol().getArboles(userId);
         boolean result= false;
-        if(!arbols.isEmpty() || arbols!= null){
+        if(!arbols.arboles.isEmpty() || arbols.arboles!= null){
             result=true;
         }
         callback.resultado(result,arbols);

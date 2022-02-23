@@ -16,7 +16,7 @@ import com.example.myarbolito.Modelo.UsuarioWithArboles;
 import java.util.List;
 
 public class UsuarioWithArbolesViewHolder extends RecyclerView.Adapter<UsuarioWithArbolesViewHolder.ViewHolder> implements View.OnClickListener  {
-    private List<UsuarioWithArboles> mDataSet;
+    private UsuarioWithArboles mDataSet;
     private View.OnClickListener listener;
 
     @Override
@@ -40,7 +40,7 @@ public class UsuarioWithArbolesViewHolder extends RecyclerView.Adapter<UsuarioWi
         }
     }
 
-    public UsuarioWithArbolesViewHolder(List<UsuarioWithArboles> dataSet) {
+    public UsuarioWithArbolesViewHolder(UsuarioWithArboles dataSet) {
         mDataSet = dataSet;
     }
 
@@ -54,19 +54,16 @@ public class UsuarioWithArbolesViewHolder extends RecyclerView.Adapter<UsuarioWi
 
     @Override
     public void onBindViewHolder(UsuarioWithArbolesViewHolder.ViewHolder holder, int position) {
-        UsuarioWithArboles arbol = mDataSet.get(position);
+          Arbol a = mDataSet.arboles.get(position);
+          holder.tvArbol.setText(a.getNombreArbol());
+          holder.imgFav.setImageResource(a.getIcon());
+          holder.cv.setCardBackgroundColor(a.getColor());
 
-        for (Arbol a : arbol.arboles) {
-            holder.tvArbol.setText(a.getNombreArbol());
-            holder.imgFav.setImageResource(a.getIcon());
-            holder.cv.setCardBackgroundColor(a.getColor());
-            break;
-        }
     }
 
         @Override
         public int getItemCount() {
-            return mDataSet.size();
+            return mDataSet.arboles.size();
         }
 
         public void setonClickListener(View.OnClickListener listener) { this.listener = listener; }

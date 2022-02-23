@@ -11,7 +11,7 @@ public interface ArbolDataSource {
     }
 
     interface RecuperarArbolesCallback {
-        void resultado(final boolean exito, List<UsuarioWithArboles> arbols);
+        void resultado(final boolean exito, UsuarioWithArboles arbols);
     }
 
     void guardarArbol(final List<Arbol> arbols, final ArbolDataSource.GuardarArbolCallback callback);
