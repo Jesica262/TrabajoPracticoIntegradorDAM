@@ -3,6 +3,7 @@ package com.example.myarbolito.Modelo;
 
 import androidx.room.Embedded;
 import androidx.room.Entity;
+import androidx.room.Junction;
 import androidx.room.Relation;
 
 import java.util.List;
@@ -11,9 +12,9 @@ import java.util.List;
 public class UsuarioWithArboles {
     @Embedded
     public Usuario usuario;
-    @Relation(parentColumn = "arbolId",
+    @Relation(parentColumn = "userId",
                entityColumn= "userId" ,
-               entity= Arbol.class)
-    List<Arbol> arboles;
+            associateBy = @Junction( Arbol.class))
+   public List<Arbol> arboles;
 
 }

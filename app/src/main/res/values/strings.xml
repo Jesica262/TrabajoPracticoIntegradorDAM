@@ -34,4 +34,6 @@
     <string name="drawer_open">open</string>
     <string name="drawer_closed">closed</string>
     <string name="inicioSesion">Inicio Sesion</string>
+    <string name="agregar">Agregar un arbol</string>
+    <string name="AceptarArbol">"Aceptar "</string>
 </resources>
