@@ -18,7 +18,7 @@ public class ArbolTipo {
 
                 arbol.setNombreArbol("Algarrobo negro");
                 arbol.setColor(ContextCompat.getColor((Context) context,R.color.md_green_300));
-                arbol.setIcon(R.mipmap.icono);
+                arbol.setIcon(R.mipmap.ic_arbol);
             }
         ));
       c.add(new Arbol(

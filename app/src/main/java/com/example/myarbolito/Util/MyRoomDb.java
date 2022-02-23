@@ -11,7 +11,7 @@ import com.example.myarbolito.DAO.DaoUsurio;
 import com.example.myarbolito.Modelo.Arbol;
 import com.example.myarbolito.Modelo.Usuario;
 
-@Database(entities = {Usuario.class, Arbol.class}, version = 1)
+@Database(entities = {Usuario.class, Arbol.class}, version = 2)
 public abstract class MyRoomDb extends RoomDatabase {
     public abstract DaoArbol daoArbol();
     public abstract DaoUsurio daoUsurio();
