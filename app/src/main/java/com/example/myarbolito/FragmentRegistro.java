@@ -27,7 +27,7 @@ public class FragmentRegistro extends Fragment {
   private Button registrar;
   private UsuarioRepository usuarioRepo;
   private EditText usuarioEdt;
-    private EditText pass;
+   private EditText pass;
     private EditText email;
     private EditText telefono;
 

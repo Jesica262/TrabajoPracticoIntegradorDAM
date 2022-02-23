@@ -11,28 +11,34 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="114dp"
-            android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="151dp"
+        android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/fotoInicioSesion"
-                android:layout_width="138dp"
-                android:layout_height="120dp"
-                app:srcCompat="@drawable/baseline_account_circle_24" />
+        usuario;
+        private String pass;
+        private String email;
+        private Long telefono;
 
-            <TextView
-                android:id="@+id/nombreText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="50dp"
-                android:text=""
-                android:textColor="@color/md_grey_700"
-                android:textSize="30dp"
-                android:textStyle="bold" />
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/fotoInicioSesion"
+            android:layout_width="138dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/baseline_account_circle_24"/>
+
+        <TextView
+            android:id="@+id/nombreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/Nombre"
+            android:textColor="@color/md_grey_700"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -43,10 +49,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="50dp"
             android:text="Identificación"
             android:textColor="@color/md_grey_700"
-            android:textSize="22dp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
         <EditText
@@ -54,62 +60,19 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
-            android:enabled="false"
-            android:textColor="@color/md_grey_700"
-            android:textSize="18dp"
+            android:ems="10"
+            android:editable="false"
+            android:textSize="20dp"
             android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="25dp"
-            android:text="E-mail"
-            android:textColor="@color/md_grey_700"
-            android:textSize="22dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/emailTextPerfil"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:textColor="@color/md_grey_700"
-            android:layout_marginHorizontal="25dp"
-            android:textSize="18dp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/tel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="25dp"
-            android:text="Teléfono"
-            android:textColor="@color/md_grey_700"
-            android:textSize="22dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/telefonoPerfil"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:textSize="18dp"
-            android:textColor="@color/md_grey_700"
-            android:enabled="false"
-            android:textStyle="bold"/>
-
         <TextView
             android:id="@+id/nombreUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="25dp"
-            android:text="Cantidad de Árboles"
-            android:textSize="22dp"
+            android:layout_marginTop="50dp"
+            android:text="Nombre"
             android:textColor="@color/md_grey_700"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
         <EditText
@@ -117,10 +80,51 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
-            android:enabled="false"
-            android:textColor="@color/md_grey_700"
-            android:textSize="18dp"
+            android:ems="10"
+            android:editable="false"
+            android:textSize="20dp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="30dp"
+            android:text="E-mail"
+            android:textColor="@color/md_grey_700"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/emailTextPerfil"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:editable="false"
+            android:layout_marginHorizontal="25dp"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="30dp"
+            android:text="Teléfono"
+            android:textColor="@color/md_grey_700"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/telefonoPerfil"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginHorizontal="25dp"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/registrar"
@@ -128,7 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="20dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="50dp"
             android:backgroundTint="@color/md_green_700"
             android:text="@string/Aceptar"
             app:cornerRadius="30dp" />

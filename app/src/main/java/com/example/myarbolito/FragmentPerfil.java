@@ -65,7 +65,9 @@ public class FragmentPerfil extends Fragment {
             usr.setName(bundle.getString("name"));
             usr.setEmail(bundle.getString("email"));
             usr.setTelefono(bundle.getString("telefono"));
-            editor.putString("id",usr.getUserId().toString());
+
+           // editor.putString("id",usr.getUserId().toString());
+            editor.putInt("id", usr.getUserId());
             editor.putString("email", usr.getEmail());
             editor.putString("telefono",usr.getTelefono());
             editor.putString("name", usr.getName());
@@ -79,7 +81,9 @@ public class FragmentPerfil extends Fragment {
     }
 
     private void mostrarDatos()  {
-        identificacion.setText(preferences.getString("id","id"));
+        //identificacion.setText(preferences.getString("id","id"));
+        Integer id=preferences.getInt("id",0);
+        identificacion.setText(id.toString());
         email.setText(preferences.getString("email","email"));
         telefono.setText(preferences.getString("telefono","telefono"));
         nombreUsr.setText(preferences.getString("name","nombre"));

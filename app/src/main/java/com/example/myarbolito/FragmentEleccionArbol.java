@@ -26,7 +26,7 @@ public class FragmentEleccionArbol extends Fragment {
     private ArbolViewHolder arbolViewHolder;
     private List<Arbol> arbols;
     private TextView texviewArbol;
-    private String seleccionado;
+    private Arbol seleccionadoArbol;
 
     public FragmentEleccionArbol() {
         // Required empty public constructor
@@ -66,11 +66,13 @@ public class FragmentEleccionArbol extends Fragment {
         arbolViewHolder.setonClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                seleccionadoArbol= arbols.get(recyclerView.getChildAdapterPosition(v));
                 Toast.makeText(getContext(), "Selecciono: " + arbols.get(recyclerView.getChildAdapterPosition(v)).getNombreArbol(), Toast.LENGTH_SHORT).show();
-                seleccionado= arbols.get(recyclerView.getChildAdapterPosition(v)).getNombreArbol();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentPedirArbol fragmentPedirArbol= new FragmentPedirArbol(arbols);
+                FragmentPedirArbol fragmentPedirArbol= new FragmentPedirArbol(seleccionadoArbol);
                 fragmentManager.beginTransaction().replace(R.id.contenido,fragmentPedirArbol).addToBackStack(null).commit();
+
 
             }
         });

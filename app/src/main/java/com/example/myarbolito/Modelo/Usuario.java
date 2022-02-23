@@ -19,6 +19,7 @@ public class Usuario {
       private String telefono;
 
 
+
      public Usuario(){}
 
     @NonNull
@@ -62,4 +63,5 @@ public class Usuario {
         this.telefono = telefono;
     }
 
-  }
+
+}
