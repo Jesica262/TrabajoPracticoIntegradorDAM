@@ -19,7 +19,7 @@ public interface DaoArbol {
     @Query("SELECT * FROM arbol")
     List<Arbol> getAll();
 
-    @Query("Select * from arbol  where  userId= :u")
+    @Query("Select * from arbol  where  userid= :u")
     public UsuarioWithArboles getArboles(Integer u);
 
     @Insert ( onConflict = OnConflictStrategy.REPLACE )

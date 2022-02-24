@@ -61,12 +61,11 @@ public class FragmentLista extends Fragment {
     }
     private void initValues() {
 
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        Integer  id=sharedPreferences.getInt("id",0);
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(manager);
         Toast.makeText(getContext(),"llego hasta aca",Toast.LENGTH_LONG).show();
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String name = sharedPreferences.getString("name", "");
-        Integer  id=sharedPreferences.getInt("id",0);
             arbolRepo = new ArbolRepository(new ArbolRoomDataSource(getContext()));
 
             arbolRepo.traerArboles(new ArbolDataSource.RecuperarArbolesCallback() {

@@ -13,8 +13,8 @@ public class UsuarioWithArboles {
     @Embedded
     public Usuario usuario;
     @Relation(parentColumn = "userId",
-               entityColumn= "userId" ,
-            associateBy = @Junction( Arbol.class))
+                entityColumn= "userId" ,
+                entity = Arbol.class)
    public List<Arbol> arboles;
 
 }

@@ -151,7 +151,6 @@ public class FragmentPedirArbol extends Fragment  {
             mapFragment.getMapAsync(callback);
         }
         initcomponentes(view);
-      // agregar();
         check();
     }
 
@@ -202,7 +201,6 @@ public class FragmentPedirArbol extends Fragment  {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         name = sharedPreferences.getString("name", "");
         Integer  id=sharedPreferences.getInt("id",0);
-        arbol.setUserId(id);
         floatingAdd = view.findViewById(R.id.floatingAdd);
         floatingCheck = view.findViewById(R.id.floatingCheck);
         arbols= new ArrayList<Arbol>();
@@ -211,5 +209,6 @@ public class FragmentPedirArbol extends Fragment  {
         usuario.setUserId(id);
         usuario.setTelefono(sharedPreferences.getString("telefono",""));
         usuario.setEmail(sharedPreferences.getString("email",""));
+        arbol.setUserId(usuario.getUserId());
     }
 }

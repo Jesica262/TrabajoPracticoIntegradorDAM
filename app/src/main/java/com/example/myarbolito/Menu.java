@@ -8,14 +8,18 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 
+import com.example.myarbolito.Modelo.Usuario;
 import com.google.android.material.navigation.NavigationView;
 
 public class Menu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,7 +28,6 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,28 +70,28 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     private void selectItemNav(@NonNull MenuItem item) {
-        FragmentManager fragm =getSupportFragmentManager();
-        TextView titulo= findViewById(R.id.titulo_toolbar);
-        switch (item.getItemId()){
+        FragmentManager fragm = getSupportFragmentManager();
+        TextView titulo = findViewById(R.id.titulo_toolbar);
+
+        switch (item.getItemId()) {
 
             case R.id.perfil:
-                Bundle objetoRecibido = getIntent().getExtras();
-                FragmentPerfil fragmentPerfil=new FragmentPerfil(objetoRecibido);
-                fragm.beginTransaction().replace(R.id.contenido,fragmentPerfil).addToBackStack(null).commit();
+                FragmentPerfil fragmentPerfil = new FragmentPerfil();
+                fragm.beginTransaction().replace(R.id.contenido, fragmentPerfil).addToBackStack(null).commit();
 
                 break;
             case R.id.listado:
-                FragmentLista fragmentLista= new FragmentLista();
-                fragm.beginTransaction().replace(R.id.contenido,fragmentLista).addToBackStack(null).commit();
+                FragmentLista fragmentLista = new FragmentLista();
+                fragm.beginTransaction().replace(R.id.contenido, fragmentLista).addToBackStack(null).commit();
 
                 break;
             case R.id.informacion:
-                FragmentInformacion fragmentInformacion= new FragmentInformacion();
-                fragm.beginTransaction().replace(R.id.contenido,fragmentInformacion).addToBackStack(null).commit();
+                FragmentInformacion fragmentInformacion = new FragmentInformacion();
+                fragm.beginTransaction().replace(R.id.contenido, fragmentInformacion).addToBackStack(null).commit();
                 break;
             case R.id.pedirArbol:
-                FragmentEleccionArbol fragmentEleccionArbol= new FragmentEleccionArbol();
-                fragm.beginTransaction().replace(R.id.contenido,fragmentEleccionArbol).addToBackStack(null).commit();
+                FragmentEleccionArbol fragmentEleccionArbol = new FragmentEleccionArbol();
+                fragm.beginTransaction().replace(R.id.contenido, fragmentEleccionArbol).addToBackStack(null).commit();
                 break;
             case R.id.cerrar:
                 Intent intent = new Intent(this, MainActivity.class);

@@ -1,12 +1,14 @@
 package com.example.myarbolito;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +31,8 @@ public class FragmentInicioSesion extends Fragment {
     private Button aceptar;
     private Usuario usr;
     int CODIGO_DE_RESULTADO = 1;
-    private Bundle bundle;
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
 
     public FragmentInicioSesion() {
         // Required empty public constructor
@@ -60,31 +63,32 @@ public class FragmentInicioSesion extends Fragment {
                 usuarioRepo.traerUsurios(new UsuarioDataSource.RecuperarUsuarioCallback() {
                     @Override
                     public void resultado(boolean exito, List<Usuario> usuarios) {
-
-                              for(Usuario u: usuarios){
-                                  if(u.getName().equals(usuarioEdt.getText().toString()) && u.getPass().equals(passEdt.getText().toString()) ){
-                                      Toast.makeText(getContext(),"Usuario Autenticado",Toast.LENGTH_LONG).show();
-                                      flag[0] =true;
-                                      usr= new Usuario();
-                                      usr.setUserId(u.getUserId());
-                                      usr.setName(u.getName());
-                                     // usr.setPass(u.getPass());
-                                      usr.setTelefono(u.getTelefono());
-                                      usr.setEmail(u.getEmail());
-                                      break;
-                                  }
-                              }
+                        for(Usuario u: usuarios){
+                            if(u.getName().equals(usuarioEdt.getText().toString()) && u.getPass().equals(passEdt.getText().toString()) ){
+                                Toast.makeText(getContext(),"Usuario Autenticado",Toast.LENGTH_LONG).show();
+                                flag[0] =true;
+                                usr= new Usuario();
+                                usr.setUserId(u.getUserId());
+                                usr.setName(u.getName());
+                                // usr.setPass(u.getPass());
+                                usr.setTelefono(u.getTelefono());
+                                usr.setEmail(u.getEmail());
+                            }
+                        }
                     }
                 });
                 if(flag[0]){
+                    preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    editor = preferences.edit();
+
+                    // editor.putString("id",usr.getUserId().toString());
+                    editor.putInt("id", usr.getUserId());
+                    editor.putString("email", usr.getEmail());
+                    editor.putString("telefono",usr.getTelefono());
+                    editor.putString("name", usr.getName());
+                    editor.commit();
                     Intent intent = new Intent(getContext(), Menu.class);
-                    bundle=new Bundle();
-                    bundle.putInt("id",usr.getUserId());
-                    bundle.putString("name",usr.getName());
-                    bundle.putString("email",usr.getEmail());
-                    bundle.putString("telefono",usr.getTelefono());
-                    intent.putExtras(bundle);
-                    startActivity( intent);
+                    startActivity(intent);
         
                 }
                 else{
