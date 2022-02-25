@@ -77,9 +77,6 @@ public class FragmentMenu extends Fragment {
 
     public void MostrarInformacion()
     {
-
-
-
         informacionMenu.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 

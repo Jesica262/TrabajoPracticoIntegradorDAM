@@ -36,4 +36,6 @@
     <string name="inicioSesion">Inicio Sesion</string>
     <string name="agregar">Agregar un arbol</string>
     <string name="AceptarArbol">"Aceptar "</string>
+    <string name="CANAL_1">canal_1</string>
+    <string name="NOTIFICACION">notificacion</string>
 </resources>

@@ -9,6 +9,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -22,12 +24,15 @@ import android.widget.TextView;
 import com.example.myarbolito.Modelo.Usuario;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Calendar;
+
 public class Menu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
+    public static String  regar ="regar";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +55,25 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         drawer.addDrawerListener(toggle);
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
+        regarArbolito();
     }
+
+    private void regarArbolito() {
+
+
+            AlarmManager alarmManager = (AlarmManager) getSystemService(this.ALARM_SERVICE);
+            Intent intent = new Intent();
+            Calendar calendar = Calendar.getInstance();
+
+
+            intent.setAction(regar);
+            intent.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),1000 * 60 * 10 , pendingIntent);
+
+    }
+
     @Override
     public void onPostCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onPostCreate(savedInstanceState, persistentState);

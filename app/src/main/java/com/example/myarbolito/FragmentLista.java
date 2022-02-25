@@ -22,6 +22,7 @@ import com.example.myarbolito.Modelo.Arbol;
 import com.example.myarbolito.Modelo.UsuarioWithArboles;
 import com.example.myarbolito.Repository.ArbolRepository;
 import com.example.myarbolito.Room.ArbolRoomDataSource;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -33,6 +34,8 @@ public class FragmentLista extends Fragment {
     private TextView texviewArbol;
     private  ArbolRepository arbolRepo;
     private SharedPreferences sharedPreferences;
+    private FloatingActionButton floatingAdd;
+
 
 
     public FragmentLista() {
@@ -51,6 +54,7 @@ public class FragmentLista extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setComponentes(view);
         initValues();
+        agregarArbol();
 
     }
 
@@ -58,6 +62,8 @@ public class FragmentLista extends Fragment {
 
         recyclerView = (RecyclerView) v.findViewById(R.id.recyclerUsuarioWithArboles);
         texviewArbol = v.findViewById(R.id.textViewContenido);
+        floatingAdd =v.findViewById(R.id.floatingAdd);
+
     }
     private void initValues() {
 
@@ -65,19 +71,33 @@ public class FragmentLista extends Fragment {
         Integer  id=sharedPreferences.getInt("id",0);
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(manager);
-        Toast.makeText(getContext(),"llego hasta aca",Toast.LENGTH_LONG).show();
+
             arbolRepo = new ArbolRepository(new ArbolRoomDataSource(getContext()));
 
             arbolRepo.traerArboles(new ArbolDataSource.RecuperarArbolesCallback() {
                 @Override
                 public void resultado(boolean exito, UsuarioWithArboles arbols) {
                     if(exito){
-                        Toast.makeText(getContext(),"llego",Toast.LENGTH_LONG).show();
                         usuarioWithArbolesViewHolder = new UsuarioWithArbolesViewHolder( arbols);
                         recyclerView.setAdapter(usuarioWithArbolesViewHolder);
                     }
+                    else{
+                        Toast.makeText(getContext(),"No se encontraron arboles para este usuario",Toast.LENGTH_LONG).show();
+                    }
                 }
             }, id);
+
+
+        }
+        private void agregarArbol(){
+        floatingAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragm = getActivity().getSupportFragmentManager();
+                FragmentEleccionArbol fragmentEleccionArbol = new FragmentEleccionArbol();
+                fragm.beginTransaction().replace(R.id.contenido, fragmentEleccionArbol).addToBackStack(null).commit();
+                }
+        });
 
 
         }

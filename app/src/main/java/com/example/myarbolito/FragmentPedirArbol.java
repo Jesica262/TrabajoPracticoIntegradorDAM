@@ -41,11 +41,13 @@ public class FragmentPedirArbol extends Fragment  {
     public List<LatLng> puntos;
     public List<MarkerOptions> marcadoresDeInteres;
     private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
     public int contador = 0;
     private String name;
      private List<Arbol> arbols;
      private ArbolRepository arbolRepo;
      private Usuario usuario;
+
 
     private FloatingActionButton floatingAdd, floatingCheck;
     public Arbol arbol;
@@ -63,6 +65,7 @@ public class FragmentPedirArbol extends Fragment  {
             nMap = googleMap;
             this.actualizarMapa();
             ejecutarActualizacionMapa();
+            mostrarArbolesPrevios(nMap );
 
         }
 
@@ -103,23 +106,18 @@ public class FragmentPedirArbol extends Fragment  {
             nMap.setTrafficEnabled(true);
             nMap.setMyLocationEnabled(true);
             nMap.getUiSettings().setZoomControlsEnabled(true);
-      /*      nMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-                @Override
-                public void onMapClick(@NonNull LatLng latLng) {
-                    puntos.add(latLng);
-                }
-            });*/
+
             nMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
                 @Override
                 public void onMapLongClick(@NonNull LatLng latLng) {
                     MarkerOptions o = new MarkerOptions()
                             .alpha(0.7f)
-                            .snippet("Arbol "+(++contador))
                             .draggable(true)
                             .position(latLng)
-                            .title(name)
+                            .title(arbol.getNombreArbol())
                             .icon(BitmapDescriptorFactory.fromResource(arbol.getIcon()))
                             .visible(true);
+                    contador++;
                     marcadoresDeInteres.add(o);
                     nMap.addMarker(o);
                     arbol.setLat(latLng.latitude);
@@ -152,53 +150,71 @@ public class FragmentPedirArbol extends Fragment  {
         }
         initcomponentes(view);
         check();
+
+    }
+
+    private void mostrarArbolesPrevios(GoogleMap nM) {
+        arbolRepo = new ArbolRepository(new ArbolRoomDataSource(getContext()));
+
+        arbolRepo.traerArboles(new ArbolDataSource.RecuperarArbolesCallback() {
+            @Override
+            public void resultado(boolean exito, UsuarioWithArboles arbols) {
+                if(exito){
+                   for  (Arbol a: arbols.arboles){
+
+                        LatLng latLng = new LatLng(a.getLat(),a.getLng());
+                        nM.addMarker(new MarkerOptions()
+                              .alpha(0.7f)
+                              .draggable(true)
+                              .position(latLng)
+                              .title(a.getNombreArbol())
+                              .icon(BitmapDescriptorFactory.fromResource(a.getIcon()))
+                              .visible(true));
+                       nM.animateCamera(CameraUpdateFactory.zoomTo(18.0f));
+                       nM.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+
+                       }
+
+
+                }
+
+            }
+        }, usuario.getUserId());
+
+
+
     }
 
     private void check() {
+
+        editor = sharedPreferences.edit();
+        editor.putInt("contador", contador);
+        editor.commit();
         floatingCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arbolRepo = new ArbolRepository(new ArbolRoomDataSource(getContext()));
-                arbolRepo.saveArboles(new ArbolDataSource.GuardarArbolCallback() {
+                     arbolRepo.saveArboles(new ArbolDataSource.GuardarArbolCallback() {
                     @Override
                     public void resultado(boolean exito) {
                         Toast.makeText(getContext(),"se guardaron",Toast.LENGTH_LONG).show();
                     }
                 }, arbols);
 
-               /* arbolRepo.traerArboles(new ArbolDataSource.RecuperarArbolesCallback() {
-                    @Override
-                    public void resultado(boolean exito, List<UsuarioWithArboles> arbols) {
-                        if(exito){
-                            Toast.makeText(getContext(),"llego",Toast.LENGTH_LONG).show();
+              }
 
-                        }
-                    }
-                }, usuario.getUserId());
-*/
-               }
 
         });
 
 
 
-    }
 
-    private void agregar() {
-        floatingAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fragm =  getActivity().getSupportFragmentManager();
-                FragmentEleccionArbol fragmentEleccionArbol= new FragmentEleccionArbol();
-                fragm.beginTransaction().replace(R.id.contenido,fragmentEleccionArbol).addToBackStack(null).commit();
-                }
-            });
-        }
+    }
 
 
     private void initcomponentes(View view) {
         puntos = new ArrayList<LatLng>();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+
         name = sharedPreferences.getString("name", "");
         Integer  id=sharedPreferences.getInt("id",0);
         floatingAdd = view.findViewById(R.id.floatingAdd);
@@ -210,5 +226,6 @@ public class FragmentPedirArbol extends Fragment  {
         usuario.setTelefono(sharedPreferences.getString("telefono",""));
         usuario.setEmail(sharedPreferences.getString("email",""));
         arbol.setUserId(usuario.getUserId());
+        arbolRepo = new ArbolRepository(new ArbolRoomDataSource(getContext()));
     }
 }

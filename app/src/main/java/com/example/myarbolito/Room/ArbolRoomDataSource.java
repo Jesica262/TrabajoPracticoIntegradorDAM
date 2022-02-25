@@ -30,6 +30,7 @@ public class ArbolRoomDataSource implements ArbolDataSource {
                     result=true;
                 }
 
+
             }
 
             callback.resultado(result);
@@ -45,9 +46,10 @@ public class ArbolRoomDataSource implements ArbolDataSource {
     public void recuperarArboles(RecuperarArbolesCallback callback, Integer userId) {
       UsuarioWithArboles arbols= db.daoArbol().getArboles(userId);
         boolean result= false;
-        if(!arbols.arboles.isEmpty() || arbols.arboles!= null){
+        if(arbols!= null){
             result=true;
         }
+
         callback.resultado(result,arbols);
     }
 

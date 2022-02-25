@@ -1,5 +1,7 @@
 package com.example.myarbolito;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -21,6 +23,8 @@ import com.example.myarbolito.Repository.UsuarioRepository;
 import com.example.myarbolito.Room.UsuarioRoomDataSource;
 import com.example.myarbolito.Util.MyRoomDb;
 
+import java.util.Calendar;
+
 
 public class FragmentRegistro extends Fragment {
 
@@ -30,6 +34,7 @@ public class FragmentRegistro extends Fragment {
    private EditText pass;
     private EditText email;
     private EditText telefono;
+    public static String  noti ="com.example.myarbolito";
 
     public FragmentRegistro() {
         // Required empty public constructor
@@ -74,9 +79,22 @@ public class FragmentRegistro extends Fragment {
 
                     }
                }, usr);
+
+                mensajeBienvenida();
                 Intent intent = new Intent(getContext(), MainActivity.class);
                 startActivity(intent);
             }
+
+            private void mensajeBienvenida() {
+                AlarmManager alarmManager = (AlarmManager) getContext().getSystemService(getContext().ALARM_SERVICE);
+                Intent intent = new Intent();
+                intent.setAction(noti);
+                intent.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                alarmManager.setExact(AlarmManager.RTC_WAKEUP, Calendar.getInstance().getTimeInMillis(), pendingIntent);
+            }
+
+
         });
     }
 }
