@@ -99,10 +99,11 @@
             android:textSize="18dp"
             android:textColor="@color/md_grey_700"
             android:enabled="false"
+
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/nombreUsuario"
+            android:id="@+id/cantArboles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"

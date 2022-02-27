@@ -1,5 +1,7 @@
 package com.example.myarbolito;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,11 +20,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.myarbolito.DataSource.ArbolDataSource;
 import com.example.myarbolito.DataSource.UsuarioDataSource;
 import com.example.myarbolito.Modelo.Usuario;
+import com.example.myarbolito.Modelo.UsuarioWithArboles;
+import com.example.myarbolito.Repository.ArbolRepository;
 import com.example.myarbolito.Repository.UsuarioRepository;
+import com.example.myarbolito.Room.ArbolRoomDataSource;
 import com.example.myarbolito.Room.UsuarioRoomDataSource;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class FragmentInicioSesion extends Fragment {
@@ -33,6 +40,10 @@ public class FragmentInicioSesion extends Fragment {
     int CODIGO_DE_RESULTADO = 1;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
+    private ArbolRepository arbolRepo;
+    public static String  regar ="regar";
+
+
 
     public FragmentInicioSesion() {
         // Required empty public constructor
@@ -52,6 +63,18 @@ public class FragmentInicioSesion extends Fragment {
         passEdt=view.findViewById(R.id.passwordInicioSesion);
         aceptar = view.findViewById(R.id.aceptar);
         aceptar();
+    }
+    private void regarArbolito() {
+
+
+        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(getContext().ALARM_SERVICE);
+        Intent intent = new Intent();
+        Calendar calendar = Calendar.getInstance();
+        intent.setAction(regar);
+        intent.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),1000 * 60 * 30 , pendingIntent);
+
     }
     public void aceptar(){
 
@@ -77,11 +100,22 @@ public class FragmentInicioSesion extends Fragment {
                         }
                     }
                 });
-                if(flag[0]){
+                if(flag[0]) {
                     preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
                     editor = preferences.edit();
+                    arbolRepo = new ArbolRepository(new ArbolRoomDataSource(getContext()));
+                    arbolRepo.traerArboles(new ArbolDataSource.RecuperarArbolesCallback() {
+                        @Override
+                        public void resultado(boolean exito, UsuarioWithArboles arbols) {
+                            if(exito){
+                               // editor.putInt("contador", arbols.arboles.size());
+                                regarArbolito();
+                            }
+                            else
+                                editor.putInt("contador", 0);
+                        }
+                    },usr.getUserId());
 
-                    // editor.putString("id",usr.getUserId().toString());
                     editor.putInt("id", usr.getUserId());
                     editor.putString("email", usr.getEmail());
                     editor.putString("telefono",usr.getTelefono());

@@ -16,10 +16,10 @@ import android.widget.TextView;
 import com.example.myarbolito.Modelo.Usuario;
 
 public class FragmentPerfil extends Fragment {
-    private Usuario usr ;
+
     private Button aceptar;
     private TextView nombreText;
-    private EditText identificacion, email, telefono,nombreUsr ,contador;
+    private EditText identificacion, email, telefono,contador;
     private SharedPreferences preferences;
 
     public FragmentPerfil() { }
@@ -40,12 +40,10 @@ public class FragmentPerfil extends Fragment {
     }
 
     private void mostrarDatos()  {
-        //identificacion.setText(preferences.getString("id","id"));
         Integer id=preferences.getInt("id",0);
         identificacion.setText(id.toString());
         email.setText(preferences.getString("email","email"));
         telefono.setText(preferences.getString("telefono","telefono"));
-        nombreUsr.setText(preferences.getString("name","nombre"));
         nombreText.setText(preferences.getString("name","nombre").toUpperCase());
         Integer c= preferences.getInt("contador",0);
         contador.setText(c.toString());
@@ -59,7 +57,6 @@ public class FragmentPerfil extends Fragment {
         contador=view.findViewById(R.id.contador);
         telefono = view.findViewById(R.id.telefonoPerfil);
         nombreText = view.findViewById(R.id.nombreText);
-
         preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
 
     }

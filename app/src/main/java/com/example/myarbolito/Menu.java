@@ -32,7 +32,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
-    public static String  regar ="regar";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,24 +55,10 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         drawer.addDrawerListener(toggle);
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
-        regarArbolito();
-    }
-
-    private void regarArbolito() {
-
-
-            AlarmManager alarmManager = (AlarmManager) getSystemService(this.ALARM_SERVICE);
-            Intent intent = new Intent();
-            Calendar calendar = Calendar.getInstance();
-
-
-            intent.setAction(regar);
-            intent.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),1000 * 60 * 10 , pendingIntent);
 
     }
+
+
 
     @Override
     public void onPostCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {

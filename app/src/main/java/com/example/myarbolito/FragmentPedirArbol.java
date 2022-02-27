@@ -160,7 +160,6 @@ public class FragmentPedirArbol extends Fragment  {
 
     private void mostrarArbolesPrevios(GoogleMap nM) {
         arbolRepo = new ArbolRepository(new ArbolRoomDataSource(getContext()));
-
         arbolRepo.traerArboles(new ArbolDataSource.RecuperarArbolesCallback() {
             @Override
             public void resultado(boolean exito, UsuarioWithArboles arbols) {
