@@ -120,10 +120,15 @@ public class FragmentPedirArbol extends Fragment  {
                     contador++;
                     marcadoresDeInteres.add(o);
                     nMap.addMarker(o);
-                    arbol.setLat(latLng.latitude);
-                    arbol.setLng(latLng.longitude);
-                    arbols.add(arbol);
-                   if (latLng != SANTA_FE) {
+                    Arbol a= new Arbol();
+                    a.setUserId(usuario.getUserId());
+                    a.setLat(latLng.latitude);
+                    a.setLng(latLng.longitude);
+                    a.setNombreArbol(arbol.getNombreArbol());
+                    a.setIcon(arbol.getIcon());
+                    a.setColor(arbol.getColor());
+                    arbols.add(a);
+                    if (latLng != SANTA_FE) {
                         puntos.add(latLng);
                     }
                 }
@@ -225,7 +230,6 @@ public class FragmentPedirArbol extends Fragment  {
         usuario.setUserId(id);
         usuario.setTelefono(sharedPreferences.getString("telefono",""));
         usuario.setEmail(sharedPreferences.getString("email",""));
-        arbol.setUserId(usuario.getUserId());
         arbolRepo = new ArbolRepository(new ArbolRoomDataSource(getContext()));
     }
 }
