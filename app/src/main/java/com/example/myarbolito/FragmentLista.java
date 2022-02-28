@@ -83,9 +83,7 @@ public class FragmentLista extends Fragment {
                     if(exito){
                         usuarioWithArbolesViewHolder = new UsuarioWithArbolesViewHolder( arbols);
                         recyclerView.setAdapter(usuarioWithArbolesViewHolder);
-                        editor.putInt("contador",arbols.arboles.size());
-                        editor.commit();
-                    }
+                              }
                     else{
                         Toast.makeText(getContext(),"No se encontraron arboles para este usuario",Toast.LENGTH_LONG).show();
                     }

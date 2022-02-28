@@ -40,8 +40,8 @@ public class FragmentInicioSesion extends Fragment {
     int CODIGO_DE_RESULTADO = 1;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
-    private ArbolRepository arbolRepo;
-    public static String  regar ="regar";
+
+
 
 
 
@@ -62,26 +62,18 @@ public class FragmentInicioSesion extends Fragment {
         usuarioEdt= view.findViewById( R.id.nombreInicioSesion);
         passEdt=view.findViewById(R.id.passwordInicioSesion);
         aceptar = view.findViewById(R.id.aceptar);
+
         aceptar();
     }
-    private void regarArbolito() {
 
-
-        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(getContext().ALARM_SERVICE);
-        Intent intent = new Intent();
-        Calendar calendar = Calendar.getInstance();
-        intent.setAction(regar);
-        intent.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),1000 * 60 * 30 , pendingIntent);
-
-    }
     public void aceptar(){
 
         aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final boolean[] flag = {false};
+                preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+                editor= preferences.edit();
                 usuarioRepo = new UsuarioRepository( new UsuarioRoomDataSource (getContext()));
                 usuarioRepo.traerUsurios(new UsuarioDataSource.RecuperarUsuarioCallback() {
                     @Override
@@ -101,21 +93,6 @@ public class FragmentInicioSesion extends Fragment {
                     }
                 });
                 if(flag[0]) {
-                    preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-                    editor = preferences.edit();
-                    arbolRepo = new ArbolRepository(new ArbolRoomDataSource(getContext()));
-                    arbolRepo.traerArboles(new ArbolDataSource.RecuperarArbolesCallback() {
-                        @Override
-                        public void resultado(boolean exito, UsuarioWithArboles arbols) {
-                            if(exito){
-                               // editor.putInt("contador", arbols.arboles.size());
-                                regarArbolito();
-                            }
-                            else
-                                editor.putInt("contador", 0);
-                        }
-                    },usr.getUserId());
-
                     editor.putInt("id", usr.getUserId());
                     editor.putString("email", usr.getEmail());
                     editor.putString("telefono",usr.getTelefono());
