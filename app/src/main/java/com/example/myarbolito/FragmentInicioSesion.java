@@ -1,5 +1,7 @@
 package com.example.myarbolito;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,11 +20,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.myarbolito.DataSource.ArbolDataSource;
 import com.example.myarbolito.DataSource.UsuarioDataSource;
 import com.example.myarbolito.Modelo.Usuario;
+import com.example.myarbolito.Modelo.UsuarioWithArboles;
+import com.example.myarbolito.Repository.ArbolRepository;
 import com.example.myarbolito.Repository.UsuarioRepository;
+import com.example.myarbolito.Room.ArbolRoomDataSource;
 import com.example.myarbolito.Room.UsuarioRoomDataSource;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class FragmentInicioSesion extends Fragment {
@@ -33,6 +40,10 @@ public class FragmentInicioSesion extends Fragment {
     int CODIGO_DE_RESULTADO = 1;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
+
+
+
+
 
     public FragmentInicioSesion() {
         // Required empty public constructor
@@ -51,14 +62,18 @@ public class FragmentInicioSesion extends Fragment {
         usuarioEdt= view.findViewById( R.id.nombreInicioSesion);
         passEdt=view.findViewById(R.id.passwordInicioSesion);
         aceptar = view.findViewById(R.id.aceptar);
+
         aceptar();
     }
+
     public void aceptar(){
 
         aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final boolean[] flag = {false};
+                preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+                editor= preferences.edit();
                 usuarioRepo = new UsuarioRepository( new UsuarioRoomDataSource (getContext()));
                 usuarioRepo.traerUsurios(new UsuarioDataSource.RecuperarUsuarioCallback() {
                     @Override
@@ -77,11 +92,7 @@ public class FragmentInicioSesion extends Fragment {
                         }
                     }
                 });
-                if(flag[0]){
-                    preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-                    editor = preferences.edit();
-
-                    // editor.putString("id",usr.getUserId().toString());
+                if(flag[0]) {
                     editor.putInt("id", usr.getUserId());
                     editor.putString("email", usr.getEmail());
                     editor.putString("telefono",usr.getTelefono());

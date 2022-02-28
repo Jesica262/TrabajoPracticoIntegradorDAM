@@ -34,7 +34,9 @@ public class FragmentLista extends Fragment {
     private TextView texviewArbol;
     private  ArbolRepository arbolRepo;
     private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
     private FloatingActionButton floatingAdd;
+
 
 
 
@@ -68,6 +70,7 @@ public class FragmentLista extends Fragment {
     private void initValues() {
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        editor = sharedPreferences.edit();
         Integer  id=sharedPreferences.getInt("id",0);
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(manager);
@@ -80,7 +83,7 @@ public class FragmentLista extends Fragment {
                     if(exito){
                         usuarioWithArbolesViewHolder = new UsuarioWithArbolesViewHolder( arbols);
                         recyclerView.setAdapter(usuarioWithArbolesViewHolder);
-                    }
+                              }
                     else{
                         Toast.makeText(getContext(),"No se encontraron arboles para este usuario",Toast.LENGTH_LONG).show();
                     }

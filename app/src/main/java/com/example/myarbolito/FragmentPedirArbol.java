@@ -95,6 +95,14 @@ public class FragmentPedirArbol extends Fragment  {
         {
             marcadoresDeInteres = new ArrayList<>();
             puntos = new ArrayList<>();
+            LatLng SANTA_FE = new LatLng(-31.6370, -60.7269);
+            nMap.moveCamera(CameraUpdateFactory.newLatLng(SANTA_FE));
+            nMap.moveCamera(CameraUpdateFactory.zoomTo(12.0f));
+            //LatLng sydney = new LatLng(-34, 151);
+         //   nMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+          //  nMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            nMap.addMarker(new MarkerOptions().position(SANTA_FE).title("Santa Fe"));
+            nMap.moveCamera(CameraUpdateFactory.newLatLng(SANTA_FE));
             nMap.setTrafficEnabled(true);
             nMap.setMyLocationEnabled(true);
             nMap.getUiSettings().setZoomControlsEnabled(true);
@@ -115,6 +123,9 @@ public class FragmentPedirArbol extends Fragment  {
                     arbol.setLat(latLng.latitude);
                     arbol.setLng(latLng.longitude);
                     arbols.add(arbol);
+                   if (latLng != SANTA_FE) {
+                        puntos.add(latLng);
+                    }
                 }
             });
         }

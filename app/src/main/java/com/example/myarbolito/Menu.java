@@ -34,6 +34,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     private ActionBarDrawerToggle toggle;
     public static String  regar ="regar";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,22 +58,19 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         toggle.syncState();
         regarArbolito();
     }
-
     private void regarArbolito() {
 
 
-            AlarmManager alarmManager = (AlarmManager) getSystemService(this.ALARM_SERVICE);
-            Intent intent = new Intent();
-            Calendar calendar = Calendar.getInstance();
-
-
-            intent.setAction(regar);
-            intent.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),1000 * 60 * 10 , pendingIntent);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(this.ALARM_SERVICE);
+        Intent intent = new Intent();
+        Calendar calendar = Calendar.getInstance();
+        intent.setAction(regar);
+        intent.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),1000 * 60 * 30 , pendingIntent);
 
     }
+
 
     @Override
     public void onPostCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
