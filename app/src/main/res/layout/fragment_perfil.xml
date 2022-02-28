@@ -16,11 +16,12 @@
             android:layout_height="114dp"
             android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/fotoInicioSesion"
-            android:layout_width="138dp"
-            android:layout_height="120dp"
-            app:srcCompat="@drawable/baseline_account_circle_24" />
+            <ImageView
+                android:id="@+id/fotoInicioSesion"
+                android:layout_width="121dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="104dp"
+                app:srcCompat="@drawable/_rbol_abstracto_del_vector_logotipo_en_c_rculo_emblema_dise_o_icono_de_la_hoja_aislado_el_concepto_blanco_respetuoso_medio_141367082" />
 
         <TextView
             android:id="@+id/nombreText"
@@ -45,7 +46,7 @@
             android:layout_marginHorizontal="25dp"
             android:layout_marginTop="25dp"
             android:text="Identificación"
-            android:textColor="@color/md_grey_700"
+            android:textColor="@color/md_grey_800"
             android:textSize="22dp"
             android:textStyle="bold" />
 
@@ -55,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
             android:enabled="false"
-            android:textColor="@color/md_grey_700"
+            android:textColor="@color/md_grey_800"
             android:textSize="18dp"
             android:textStyle="bold" />
 
@@ -66,7 +67,7 @@
             android:layout_marginHorizontal="25dp"
             android:layout_marginTop="25dp"
             android:text="E-mail"
-            android:textColor="@color/md_grey_700"
+            android:textColor="@color/md_grey_800"
             android:textSize="22dp"
             android:textStyle="bold" />
 
@@ -75,7 +76,7 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:textColor="@color/md_grey_700"
+            android:textColor="@color/md_grey_800"
             android:layout_marginHorizontal="25dp"
             android:textSize="18dp"
             android:textStyle="bold"/>
@@ -87,7 +88,7 @@
             android:layout_marginHorizontal="25dp"
             android:layout_marginTop="25dp"
             android:text="Teléfono"
-            android:textColor="@color/md_grey_700"
+            android:textColor="@color/md_grey_800"
             android:textSize="22dp"
             android:textStyle="bold" />
 
@@ -97,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
             android:textSize="18dp"
-            android:textColor="@color/md_grey_700"
+            android:textColor="@color/md_grey_800"
             android:enabled="false"
 
             android:textStyle="bold"/>
@@ -110,7 +111,7 @@
             android:layout_marginTop="25dp"
             android:text="Cantidad de Árboles"
             android:textSize="22dp"
-            android:textColor="@color/md_grey_700"
+            android:textColor="@color/md_grey_800"
             android:textStyle="bold" />
 
         <EditText
@@ -119,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
             android:enabled="false"
-            android:textColor="@color/md_grey_700"
+            android:textColor="@color/md_grey_800"
             android:textSize="18dp"
             android:textStyle="bold" />
 

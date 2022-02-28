@@ -105,7 +105,7 @@ public class FragmentPedirArbol extends Fragment  {
             nMap.moveCamera(CameraUpdateFactory.newLatLng(SANTA_FE));
             nMap.setTrafficEnabled(true);
             nMap.setMyLocationEnabled(true);
-            nMap.getUiSettings().setZoomControlsEnabled(true);
+            //nMap.getUiSettings().setZoomControlsEnabled(true);
 
             nMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
                 @Override
