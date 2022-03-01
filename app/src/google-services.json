@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1080637154563",
+    "project_id": "myarbolito-ad248",
+    "storage_bucket": "myarbolito-ad248.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080637154563:android:7a079dc14c5bde98f0f536",
+        "android_client_info": {
+          "package_name": "com.example.myarbolito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1080637154563-1ik7lj93vr1k7k7mgaja6shcvtlv0efl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myarbolito",
+            "certificate_hash": "c15eb90d1b0d2ed3803cde707ee1441ba41d3db1"
+          }
+        },
+        {
+          "client_id": "1080637154563-6tvv4nnplq3v01ptbbpdpp34bva7p4f3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8GpfVaZ2F-Y2LkMFq7O6DeuZy7RR4w64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1080637154563-6tvv4nnplq3v01ptbbpdpp34bva7p4f3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
