@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
@@ -15,6 +17,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Calendar;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity{
         intentFilter.addAction(regar);
         this.registerReceiver(notificacion,intentFilter);
         createNotificationChannel();
+        cancelarAlarmRegar();
 
     }
 
@@ -48,7 +53,17 @@ public class MainActivity extends AppCompatActivity{
             notificationManager.createNotificationChannel(channel);
 
         }
+    }
+        private void cancelarAlarmRegar() {
+            AlarmManager alarmManager = (AlarmManager) getSystemService(this.ALARM_SERVICE);
+            Intent intent = new Intent();
+            Calendar calendar = Calendar.getInstance();
+            intent.setAction(regar);
+            intent.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            alarmManager.cancel(pendingIntent);
+
+        }
 
 }
 
-}

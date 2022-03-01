@@ -1,5 +1,8 @@
 package com.example.myarbolito;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -24,6 +27,7 @@ import com.example.myarbolito.Repository.ArbolRepository;
 import com.example.myarbolito.Room.ArbolRoomDataSource;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class FragmentLista extends Fragment {
@@ -36,6 +40,7 @@ public class FragmentLista extends Fragment {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     private FloatingActionButton floatingAdd;
+    public static String  regar ="regar";
 
 
 
@@ -83,6 +88,7 @@ public class FragmentLista extends Fragment {
                     if(exito){
                         usuarioWithArbolesViewHolder = new UsuarioWithArbolesViewHolder( arbols);
                         recyclerView.setAdapter(usuarioWithArbolesViewHolder);
+                        regarArbolito();
                               }
                     else{
                         Toast.makeText(getContext(),"No se encontraron arboles para este usuario",Toast.LENGTH_LONG).show();
@@ -104,6 +110,16 @@ public class FragmentLista extends Fragment {
 
 
         }
+    private void regarArbolito() {
+        AlarmManager alarmManager = (AlarmManager) getContext().getSystemService(getContext().ALARM_SERVICE);
+        Intent intent = new Intent();
+        Calendar calendar = Calendar.getInstance();
+        intent.setAction(regar);
+        intent.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),1000 * 60 * 10 , pendingIntent);
+
+    }
 
 
         }

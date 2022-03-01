@@ -98,9 +98,7 @@ public class FragmentPedirArbol extends Fragment  {
             LatLng SANTA_FE = new LatLng(-31.6370, -60.7269);
             nMap.moveCamera(CameraUpdateFactory.newLatLng(SANTA_FE));
             nMap.moveCamera(CameraUpdateFactory.zoomTo(12.0f));
-            //LatLng sydney = new LatLng(-34, 151);
-         //   nMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-          //  nMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+         //   nMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
             nMap.addMarker(new MarkerOptions().position(SANTA_FE).title("Santa Fe"));
             nMap.moveCamera(CameraUpdateFactory.newLatLng(SANTA_FE));
             nMap.setTrafficEnabled(true);
@@ -120,9 +118,15 @@ public class FragmentPedirArbol extends Fragment  {
                     contador++;
                     marcadoresDeInteres.add(o);
                     nMap.addMarker(o);
-                    arbol.setLat(latLng.latitude);
-                    arbol.setLng(latLng.longitude);
-                    arbols.add(arbol);
+                    Arbol a=new Arbol();
+                    a.setArbolId(arbol.getArbolId());
+                    a.setColor(arbol.getColor());
+                    a.setNombreArbol(arbol.getNombreArbol());
+                    a.setUserId(arbol.getUserId());
+                    a.setIcon(arbol.getIcon());
+                    a.setLat(latLng.latitude);
+                    a.setLng(latLng.longitude);
+                    arbols.add(a);
                    if (latLng != SANTA_FE) {
                         puntos.add(latLng);
                     }
@@ -170,6 +174,7 @@ public class FragmentPedirArbol extends Fragment  {
                               .title(a.getNombreArbol())
                               .icon(BitmapDescriptorFactory.fromResource(a.getIcon()))
                               .visible(true));
+
                        nM.animateCamera(CameraUpdateFactory.zoomTo(18.0f));
                        nM.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 

@@ -32,7 +32,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
-    public static String  regar ="regar";
+    //public static String  regar ="regar";
 
 
     @Override
@@ -56,9 +56,9 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         drawer.addDrawerListener(toggle);
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
-        regarArbolito();
+        //regarArbolito();
     }
-    private void regarArbolito() {
+/*    private void regarArbolito() {
 
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(this.ALARM_SERVICE);
@@ -69,7 +69,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),1000 * 60 * 30 , pendingIntent);
 
-    }
+    }*/
 
 
     @Override

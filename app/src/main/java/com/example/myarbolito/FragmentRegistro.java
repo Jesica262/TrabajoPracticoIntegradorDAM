@@ -4,24 +4,21 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.example.myarbolito.DataSource.UsuarioDataSource;
 import com.example.myarbolito.Modelo.Usuario;
 import com.example.myarbolito.Repository.UsuarioRepository;
 import com.example.myarbolito.Room.UsuarioRoomDataSource;
-import com.example.myarbolito.Util.MyRoomDb;
 
 import java.util.Calendar;
 
@@ -65,24 +62,29 @@ public class FragmentRegistro extends Fragment {
         registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Usuario usr= new Usuario();
-                usr.setName(usuarioEdt.getText().toString());
-                usr.setPass(pass.getText().toString());
-                usr.setEmail(email.getText().toString());
-                usr.setTelefono(telefono.getText().toString());
+                if (validar()==1) {
 
-                usuarioRepo = new UsuarioRepository( new UsuarioRoomDataSource (getContext()));
-                usuarioRepo.saveUsuario(new UsuarioDataSource.GuardarUsuarioCallback() {
-                    @Override
-                    public void resultado(boolean exito) {
-                        Toast.makeText(getContext(), "Usuario creado correctamente", Toast.LENGTH_LONG).show();
+                    Usuario usr = new Usuario();
+                    usr.setName(usuarioEdt.getText().toString());
+                    usr.setPass(pass.getText().toString());
+                    usr.setEmail(email.getText().toString());
+                    usr.setTelefono(telefono.getText().toString());
 
-                    }
-               }, usr);
+                    usuarioRepo = new UsuarioRepository(new UsuarioRoomDataSource(getContext()));
+                    usuarioRepo.saveUsuario(new UsuarioDataSource.GuardarUsuarioCallback() {
+                        @Override
+                        public void resultado(boolean exito) {
+                            Toast.makeText(getContext(), "Usuario creado correctamente", Toast.LENGTH_LONG).show();
 
-                mensajeBienvenida();
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                startActivity(intent);
+                        }
+                    }, usr);
+
+                    mensajeBienvenida();
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+
+
             }
 
             private void mensajeBienvenida() {
@@ -96,5 +98,30 @@ public class FragmentRegistro extends Fragment {
 
 
         });
+    }
+
+    private Integer validar() {
+        int flag = 0;
+        if (usuarioEdt.getText().toString().equals(""))
+            usuarioEdt.setError("Introduzca su nombre");
+        else {
+            if (pass.getText().toString().equals(""))
+                pass.setError("Introduzca una contraseña");
+            else {
+                if (email.getText().toString().equals(""))
+                    email.setError("Introduzca su email");
+                else {
+                    if (telefono.getText().toString().equals(""))
+                        telefono.setError("Introduzca su telefono");
+                    else {
+                        flag=1;
+
+                    }
+
+                }
+            }
+        }
+
+    return flag;
     }
 }
