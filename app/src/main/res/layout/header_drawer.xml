@@ -4,22 +4,17 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:background="@color/white"
+    android:background="@drawable/card_view_2"
     android:gravity="bottom"
-    android:backgroundTint="@color/md_green_100"
     android:paddingStart="5dp">
 
-    <ImageView
-        android:layout_width="204dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@mipmap/ic_arbol" />
+
     <TextView
         android:id="@+id/txViewHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/md_grey_800"
+        android:textColor="@color/black"
         android:layout_marginVertical="10dp"
         android:textStyle="bold"
         android:text="MI ARBOLITO"

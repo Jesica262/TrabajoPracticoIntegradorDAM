@@ -18,8 +18,7 @@ import com.example.myarbolito.Modelo.Usuario;
 public class FragmentPerfil extends Fragment {
 
     private Button aceptar;
-    private TextView nombreText;
-    private EditText identificacion, email, telefono,contador;
+    private EditText identificacion, email, telefono, nombreEdit;
     private SharedPreferences preferences;
 
     public FragmentPerfil() { }
@@ -44,9 +43,7 @@ public class FragmentPerfil extends Fragment {
         identificacion.setText(id.toString());
         email.setText(preferences.getString("email","email"));
         telefono.setText(preferences.getString("telefono","telefono"));
-        nombreText.setText(preferences.getString("name","nombre").toUpperCase());
-        Integer c= preferences.getInt("contador",0);
-        contador.setText(c.toString());
+        nombreEdit.setText(preferences.getString("name","nombre"));
 
     }
 
@@ -54,9 +51,8 @@ public class FragmentPerfil extends Fragment {
         aceptar = view.findViewById(R.id.registrar);
         identificacion = view.findViewById(R.id.identificadorPerfil);
         email = view.findViewById(R.id.emailTextPerfil);
-        contador=view.findViewById(R.id.contador);
         telefono = view.findViewById(R.id.telefonoPerfil);
-        nombreText = view.findViewById(R.id.nombreText);
+        nombreEdit = view.findViewById(R.id.nombreEdit);
         preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
 
     }

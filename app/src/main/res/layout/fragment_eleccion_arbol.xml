@@ -11,17 +11,24 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textLista"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="15dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Seleccione que Árbol desea plantar"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/md_grey_400"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textListaArbol"
+                android:layout_width="match_parent"
+                android:text="Seleccione que Árbol desea plantar"
+                android:textAlignment="center"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:layout_height="150dp"
+                android:background="@drawable/card_view_4" />
+
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerArbol"
