@@ -29,5 +29,16 @@ public class UsuarioRepository {
         };
         r.run();
     }
+    public void buscarUsuario(UsuarioDataSource.BuscarUsuarioCallback callback, String nombre, String pass ){
+      Runnable r = new Runnable() {
+          @Override
+          public void run() {
+              datasource.buscarUsuario(callback,nombre,pass);
+          }
+      };
+      r.run();
+
+
+   }
 
 }

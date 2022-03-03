@@ -1,35 +1,25 @@
 package com.example.myarbolito;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
-import com.example.myarbolito.DataSource.ArbolDataSource;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.example.myarbolito.DataSource.UsuarioDataSource;
 import com.example.myarbolito.Modelo.Usuario;
-import com.example.myarbolito.Modelo.UsuarioWithArboles;
-import com.example.myarbolito.Repository.ArbolRepository;
 import com.example.myarbolito.Repository.UsuarioRepository;
-import com.example.myarbolito.Room.ArbolRoomDataSource;
 import com.example.myarbolito.Room.UsuarioRoomDataSource;
 
-import java.util.Calendar;
 import java.util.List;
 
 public class FragmentInicioSesion extends Fragment {
@@ -62,27 +52,30 @@ public class FragmentInicioSesion extends Fragment {
         usuarioEdt= view.findViewById( R.id.nombreInicioSesion);
         passEdt=view.findViewById(R.id.passwordInicioSesion);
         aceptar = view.findViewById(R.id.aceptar);
-
         aceptar();
-    }
 
+
+    }
     public void aceptar(){
 
         aceptar.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 final boolean[] flag = {false};
+                String nombre = usuarioEdt.getText().toString();
+                String pass = passEdt.getText().toString();
                 preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-                editor= preferences.edit();
-                usuarioRepo = new UsuarioRepository( new UsuarioRoomDataSource (getContext()));
+                editor = preferences.edit();
+                usuarioRepo = new UsuarioRepository(new UsuarioRoomDataSource(getContext()));
                 usuarioRepo.traerUsurios(new UsuarioDataSource.RecuperarUsuarioCallback() {
                     @Override
                     public void resultado(boolean exito, List<Usuario> usuarios) {
-                        for(Usuario u: usuarios){
-                            if(u.getName().equals(usuarioEdt.getText().toString()) && u.getPass().equals(passEdt.getText().toString()) ){
-                                Toast.makeText(getContext(),"Usuario Autenticado",Toast.LENGTH_LONG).show();
-                                flag[0] =true;
-                                usr= new Usuario();
+                        for (Usuario u : usuarios) {
+                            if (u.getName().equals(usuarioEdt.getText().toString()) && u.getPass().equals(passEdt.getText().toString())) {
+                                Toast.makeText(getContext(), "Usuario Autenticado", Toast.LENGTH_LONG).show();
+                                flag[0] = true;
+                                usr = new Usuario();
                                 usr.setUserId(u.getUserId());
                                 usr.setName(u.getName());
                                 // usr.setPass(u.getPass());
@@ -92,19 +85,39 @@ public class FragmentInicioSesion extends Fragment {
                         }
                     }
                 });
-                if(flag[0]) {
+
+        /*        usuarioRepo.buscarUsuario(new UsuarioDataSource.BuscarUsuarioCallback() {
+                                              @Override
+                                              public void resultado(boolean exito, Usuario u) {
+                                                  if (exito) {
+                                                      Toast.makeText(getContext(), "Usuario Autenticado", Toast.LENGTH_LONG).show();
+                                                      flag[0] = true;
+                                                      usr = new Usuario();
+                                                      usr.setUserId(u.getUserId());
+                                                      usr.setName(u.getName());
+                                                      // usr.setPass(u.getPass());
+                                                      usr.setTelefono(u.getTelefono());
+                                                      usr.setEmail(u.getEmail());
+                                                  }
+
+                                              }
+                                          }, nombre, pass
+                );*/
+
+
+                if (flag[0]) {
                     editor.putInt("id", usr.getUserId());
                     editor.putString("email", usr.getEmail());
-                    editor.putString("telefono",usr.getTelefono());
+                    editor.putString("telefono", usr.getTelefono());
                     editor.putString("name", usr.getName());
                     editor.commit();
                     Intent intent = new Intent(getContext(), Menu.class);
                     startActivity(intent);
-        
-                }
-                else{
+
+                } else {
                     Toast.makeText(getContext(),"Usuario no valido, vuelva a ingresar",Toast.LENGTH_LONG).show();
                 }
+
 
             }
         });

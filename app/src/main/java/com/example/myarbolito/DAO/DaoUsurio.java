@@ -17,8 +17,9 @@ public interface DaoUsurio {
     @Query("SELECT * FROM usuario")
     List<Usuario> getAll();
 
-  /*  @Query("Select * from usuario where  usuario.id=id ")
-    Usuario getUsuario(Integer id );*/
+
+   @Query("Select * from usuario  where  name= :nombre and pass=:pass ")
+    Usuario getUsuario(String nombre ,String pass);
 
     @Insert
     void insertAll(Usuario... usuario);

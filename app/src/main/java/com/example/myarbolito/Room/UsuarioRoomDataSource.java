@@ -5,7 +5,6 @@ import android.content.Context;
 import androidx.room.OnConflictStrategy;
 
 
-import com.example.myarbolito.DAO.DaoUsurio;
 import com.example.myarbolito.DataSource.UsuarioDataSource;
 import com.example.myarbolito.Modelo.Usuario;
 import com.example.myarbolito.Util.MyRoomDb;
@@ -45,4 +44,17 @@ public class UsuarioRoomDataSource implements UsuarioDataSource {
         }
         callback.resultado(result,resultado);
     }
+
+    @Override
+    public void buscarUsuario(BuscarUsuarioCallback callback, String nombre, String pass) {
+           boolean result=false;
+            Usuario usr= db.daoUsurio().getUsuario(nombre,pass);
+            if (usr!=null){
+                result=true;
+                callback.resultado (result,usr);
+            }
+            else
+                callback.resultado(result,usr);
+    }
+
 }

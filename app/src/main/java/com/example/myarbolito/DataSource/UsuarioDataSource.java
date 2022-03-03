@@ -13,9 +13,13 @@ public interface UsuarioDataSource {
     interface RecuperarUsuarioCallback {
         void resultado(final boolean exito, final List<Usuario> usuarios);
     }
+    interface BuscarUsuarioCallback{
+        void resultado(final boolean exito, final Usuario usuario );
+
+    }
 
     void guardarUsuario(final Usuario usr, final GuardarUsuarioCallback callback);
     void recuperarUsuario(final RecuperarUsuarioCallback callback);
-
+    void buscarUsuario(final BuscarUsuarioCallback callback, String nombre, String pass);
 
 }
